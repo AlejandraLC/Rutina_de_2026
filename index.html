@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutina 2026 | Alejandra</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Tu asistente personal para rutinas físicas, mentales y espirituales">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Rutina 2026">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" type="image/svg+xml" href="./icon-192.svg">
+    <link rel="apple-touch-icon" href="./icon-192.svg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#0f172a',
+                            card: '#1e293b',
+                            hover: '#334155'
+                        },
+                        level: {
+                            physical: '#22c55e', // Green
+                            mental: '#3b82f6',   // Blue
+                            spiritual: '#a855f7' // Purple
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: linear-gradient(145deg, #1e293b, #111827);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-slate-200 pb-20 override-scroll">
+
+    <!-- Top Bar: Date & Currency -->
+    <header class="fixed top-0 w-full z-50 glass border-b border-slate-800/50">
+        <div class="max-w-md mx-auto px-4 h-16 flex items-center justify-between">
+            <!-- Date Picker -->
+            <div class="relative group cursor-pointer" id="date-display-container">
+                <div class="flex flex-col">
+                    <span class="text-xs text-slate-400 font-medium uppercase tracking-wider"
+                        id="current-year">2026</span>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-lg font-bold text-slate-100" id="current-date-text">Cargando...</h1>
+                        <i data-lucide="chevron-down"
+                            class="w-4 h-4 text-slate-500 group-hover:text-slate-300 transition-colors"></i>
+                    </div>
+                </div>
+                <!-- Native Date Picker (Hidden but triggers) -->
+                <input type="date" id="native-date-picker"
+                    class="absolute inset-0 opacity-0 cursor-pointer w-full h-full">
+            </div>
+
+            <!-- Currency Counters -->
+            <div class="flex items-center gap-2">
+                <!-- XP -->
+                <div
+                    class="flex items-center gap-1.5 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700/50">
+                    <i data-lucide="zap" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                    <span class="text-sm font-bold text-yellow-400" id="xp-counter">0</span>
+                    <span class="text-xs text-slate-500 font-medium">XP</span>
+                </div>
+                <!-- Coins -->
+                <div
+                    class="flex items-center gap-1.5 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700/50">
+                    <i data-lucide="coins" class="w-4 h-4 text-amber-500 fill-amber-500"></i>
+                    <span class="text-sm font-bold text-amber-400" id="savings-counter">₡0</span>
+                </div>
+                <!-- Backup Button -->
+                <button onclick="Store.exportData()" title="Exportar backup"
+                    class="p-2 bg-slate-800/50 rounded-full border border-slate-700/50 hover:bg-slate-700/50 transition-colors">
+                    <i data-lucide="download" class="w-4 h-4 text-blue-400"></i>
+                </button>
+                <!-- Restore Button -->
+                <button onclick="Store.importData()" title="Importar backup"
+                    class="p-2 bg-slate-800/50 rounded-full border border-slate-700/50 hover:bg-slate-700/50 transition-colors">
+                    <i data-lucide="upload" class="w-4 h-4 text-green-400"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main id="app-container" class="max-w-6xl mx-auto pt-20 px-4 space-y-6">
+        <!-- Dynamic Content Injected Here -->
+    </main>
+
+    <!-- Bottom Navigation (Optional/Contextual) or Floating Action Button?
+         User asked for "Dashboard" as center control. Let's keep it simple.
+         We might add a permanent "Home" button if we navigate deep. -->
+    <nav class="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        <button onclick="App.renderView('dashboard')"
+            class="bg-indigo-600 hover:bg-indigo-500 text-white p-4 rounded-full shadow-lg shadow-indigo-500/30 transition-all hover:scale-105 active:scale-95 flex items-center justify-center">
+            <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
+        </button>
+    </nav>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- UTILS ---
+        const Utils = {
+            generateId: () => Math.random().toString(36).substr(2, 9),
+            formatDateFriends: (dateStr) => {
+                const date = new Date(dateStr + 'T00:00:00'); // Fix Timezone issues
+                const options = { weekday: 'long', day: 'numeric', month: 'long' };
+                return date.toLocaleDateString('es-ES', options).replace(/^\w/, c => c.toUpperCase());
+            },
+            getTodayISO: () => {
+                const now = new Date();
+                const offset = now.getTimezoneOffset();
+                const local = new Date(now.getTime() - (offset * 60 * 1000));
+                return local.toISOString().split('T')[0];
+            }
+        };
+
+        // --- STATE MANAGEMENT ---
+        const Store = {
+            data: {
+                user: { xp: 0, coins: 0 },
+                settings: { lastReset: null },
+                levels: [
+                    { id: 'l_phy', name: 'Físico', color: 'green', icon: 'dumbbell', goals: [] },
+                    { id: 'l_men', name: 'Mental', color: 'blue', icon: 'brain', goals: [] },
+                    { id: 'l_spi', name: 'Espiritual', color: 'purple', icon: 'sparkles', goals: [] }
+                ],
+                modules: {
+                    savings: { balance: 0, logs: [] },
+                    shop: {
+                        items: [
+                            { id: 1, name: 'Café', cost: 1500, xpRequired: 100, tier: 'bronze', icon: 'coffee' },
+                            { id: 2, name: 'Almuerzo Especial', cost: 5000, xpRequired: 500, tier: 'silver', icon: 'star' },
+                            { id: 3, name: 'Día Libre', cost: 10000, xpRequired: 1000, tier: 'gold', icon: 'crown' },
+                        ]
+                    },
+                    journal: {} // 'YYYY-MM-DD': "text"
+                },
+                activityLog: {} // 'YYYY-MM-DD': { goalId_activityId: true }
+            },
+
+            init() {
+                const saved = localStorage.getItem('rutina2026_db');
+                if (saved) {
+                    this.data = JSON.parse(saved);
+
+                    // Migration: Add xpRequired to shop items if missing
+                    if (this.data.modules?.shop?.items) {
+                        this.data.modules.shop.items = this.data.modules.shop.items.map(item => {
+                            if (!item.xpRequired) {
+                                // Set default XP based on cost
+                                if (item.cost <= 2000) item.xpRequired = 100;
+                                else if (item.cost <= 6000) item.xpRequired = 500;
+                                else item.xpRequired = 1000;
+                            }
+                            return item;
+                        });
+                        this.save();
+                    }
+                } else {
+                    this.save();
+                }
+            },
+
+            save() {
+                localStorage.setItem('rutina2026_db', JSON.stringify(this.data));
+                App.updateHeader();
+            },
+
+            exportData() {
+                // Create JSON file with all data
+                const dataStr = JSON.stringify(this.data, null, 2);
+                const dataBlob = new Blob([dataStr], { type: 'application/json' });
+
+                // Create download link
+                const url = URL.createObjectURL(dataBlob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `rutina_backup_${new Date().toISOString().split('T')[0]}.json`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+
+                alert('✅ Backup descargado exitosamente!');
+            },
+
+            importData() {
+                // Create file input
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = 'application/json';
+
+                input.onchange = (e) => {
+                    const file = e.target.files[0];
+                    if (!file) return;
+
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        try {
+                            const importedData = JSON.parse(event.target.result);
+
+                            // Validate data structure
+                            if (!importedData.levels || !importedData.user) {
+                                alert('❌ Archivo inválido. No contiene la estructura correcta.');
+                                return;
+                            }
+
+                            // Confirm before overwriting
+                            if (confirm('⚠️ Esto reemplazará TODOS tus datos actuales. ¿Continuar?')) {
+                                this.data = importedData;
+                                this.save();
+                                alert('✅ Datos importados exitosamente!');
+                                location.reload();
+                            }
+                        } catch (error) {
+                            alert('❌ Error al leer el archivo: ' + error.message);
+                        }
+                    };
+                    reader.readAsText(file);
+                };
+
+                input.click();
+            },
+
+            // --- LEVEL MANAGEMENT ---
+            createLevel(name, color, icon) {
+                const newLevel = {
+                    id: 'l_' + Utils.generateId(),
+                    name: name,
+                    color: color,
+                    icon: icon,
+                    goals: []
+                };
+                this.data.levels.push(newLevel);
+                this.save();
+                return newLevel.id;
+            },
+
+            updateLevel(levelId, name, color, icon) {
+                const level = this.data.levels.find(l => l.id === levelId);
+                if (level) {
+                    level.name = name;
+                    level.color = color;
+                    level.icon = icon;
+                    this.save();
+                }
+            },
+
+            deleteLevel(levelId) {
+                this.data.levels = this.data.levels.filter(l => l.id !== levelId);
+                this.save();
+            },
+
+            // --- HELPERS ---
+            reset() {
+                if (confirm('¿Estás segura de querer borrar TODO el progreso?')) {
+                    localStorage.removeItem('rutina2026_db');
+                    location.reload();
+                }
+            },
+
+            getDayCompletionPercentage(date) {
+                // Calculate what % of activities were completed on a given date
+                let totalActivities = 0;
+                let completedActivities = 0;
+
+                const dateObj = new Date(date + 'T00:00:00');
+                const dayOfWeek = dateObj.getDay();
+
+                this.data.levels.forEach(level => {
+                    level.goals.forEach(goal => {
+                        const phaseKey = this.getPhaseKey(date, goal.phaseType || 'monthly');
+                        const phase = goal.phases?.[phaseKey];
+                        if (!phase) return;
+
+                        let dailyActs = [];
+                        if (phase.routine && phase.routine[dayOfWeek]) {
+                            dailyActs = phase.routine[dayOfWeek];
+                        } else if (phase.activities) {
+                            dailyActs = phase.activities;
+                        }
+
+                        dailyActs.forEach((act, idx) => {
+                            totalActivities++;
+                            const key = `${goal.id}_${idx}`;
+                            if (this.data.activityLog[date]?.[key]) {
+                                completedActivities++;
+                            }
+                        });
+                    });
+                });
+
+                return totalActivities === 0 ? 0 : (completedActivities / totalActivities) * 100;
+            },
+
+            checkStreakBonuses(date) {
+                // Check for perfect week (7 consecutive days at 100%)
+                // Check for perfect month (all days in month at 100%)
+                const dateObj = new Date(date + 'T00:00:00');
+
+                // Perfect Week Check (last 7 days including today)
+                let perfectWeek = true;
+                for (let i = 0; i < 7; i++) {
+                    const checkDate = new Date(dateObj);
+                    checkDate.setDate(checkDate.getDate() - i);
+                    const checkDateStr = checkDate.toISOString().split('T')[0];
+                    const completion = this.getDayCompletionPercentage(checkDateStr);
+                    if (completion < 100) {
+                        perfectWeek = false;
+                        break;
+                    }
+                }
+
+                // Award perfect week bonus (only once per week)
+                const weekKey = `week_${date}`;
+                if (perfectWeek && !this.data.activityLog[date]?.[weekKey]) {
+                    this.addXP(500);
+                    this.updateSavings(2000);
+                    if (!this.data.activityLog[date]) this.data.activityLog[date] = {};
+                    this.data.activityLog[date][weekKey] = true;
+                    this.showCelebration('¡SEMANA PERFECTA! 🎉', '+500 XP y ₡2,000');
+                }
+
+                // Perfect Month Check
+                const year = dateObj.getFullYear();
+                const month = dateObj.getMonth();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                let perfectMonth = true;
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const checkDate = new Date(year, month, day);
+                    const checkDateStr = checkDate.toISOString().split('T')[0];
+                    const completion = this.getDayCompletionPercentage(checkDateStr);
+                    if (completion < 100) {
+                        perfectMonth = false;
+                        break;
+                    }
+                }
+
+                // Award perfect month bonus (only once per month)
+                const monthKey = `month_${year}-${String(month + 1).padStart(2, '0')}`;
+                if (perfectMonth && !this.data.activityLog[date]?.[monthKey]) {
+                    this.addXP(2000);
+                    this.updateSavings(5000);
+                    if (!this.data.activityLog[date]) this.data.activityLog[date] = {};
+                    this.data.activityLog[date][monthKey] = true;
+                    this.showCelebration('¡MES PERFECTO! 🎆', '+2000 XP y ₡5,000');
+                }
+            },
+
+            showCelebration(title, subtitle) {
+                // Create celebration overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-fade-in';
+                overlay.innerHTML = `
+                    <div class="text-center animate-bounce">
+                        <h1 class="text-6xl font-bold text-yellow-400 mb-4">${title}</h1>
+                        <p class="text-3xl text-cyan-400">${subtitle}</p>
+                    </div>
+                `;
+                document.body.appendChild(overlay);
+
+                // Auto-remove after 3 seconds
+                setTimeout(() => {
+                    overlay.remove();
+                }, 3000);
+            },
+
+            // --- ACTIONS ---
+            addXP(amount) {
+                this.data.user.xp += amount;
+                // Coins decoupled as requested
+                this.save();
+            },
+
+            toggleActivity(date, goalId, activityId) {
+                if (!this.data.activityLog[date]) this.data.activityLog[date] = {};
+
+                const key = `${goalId}_${activityId}`;
+                const output = !this.data.activityLog[date][key];
+
+                this.data.activityLog[date][key] = output;
+
+                // Rewards
+                if (output) {
+                    this.addXP(10);
+                } else {
+                    this.addXP(-10); // Penalty for unchecking
+                }
+
+                // Check Level Daily Bonus (User asked: "Logro de todas las actividades diarias de una meta = 15 XP")
+                // This logic requires checking ALL activities for that goal.
+                // We'll calculate this dynamically or on-check.
+                // For simplicity/performance: check "isGoalComplete" now
+                this.checkGoalBonus(date, goalId);
+
+                // Check for streak bonuses (perfect week/month)
+                this.checkStreakBonuses(date);
+
+                this.save();
+
+                // Manually update UI without re-rendering to avoid scroll jump
+                const checkbox = document.querySelector(`input[type="checkbox"][onclick*="'${goalId}', '${activityId}'"]`);
+                if (checkbox) {
+                    checkbox.checked = output;
+                    // The span is a sibling within the same li element
+                    const parentLi = checkbox.closest('li');
+                    if (parentLi) {
+                        const label = parentLi.querySelector('span');
+                        if (label) {
+                            if (output) {
+                                label.classList.add('text-slate-500', 'line-through');
+                                label.classList.remove('text-slate-300');
+                            } else {
+                                label.classList.remove('text-slate-500', 'line-through');
+                                label.classList.add('text-slate-300');
+                            }
+                        }
+                    }
+                }
+
+                // Update XP/Coins display
+                const xpDisplay = document.getElementById('xp-display');
+                const coinsDisplay = document.getElementById('coins-display');
+                if (xpDisplay) xpDisplay.textContent = this.data.xp;
+                if (coinsDisplay) coinsDisplay.textContent = this.data.coins;
+
+                // Update progress indicator for the current date
+                this.updateProgressIndicator();
+            },
+
+            updateProgressIndicator() {
+                // Save current scroll position
+                const scrollY = window.scrollY;
+
+                // Re-render dashboard to update progress indicators
+                App.renderView('dashboard');
+
+                // Restore scroll position after a brief delay
+                setTimeout(() => {
+                    window.scrollTo(0, scrollY);
+                }, 10);
+            },
+
+            getLevelIdByGoalId(goalId) {
+                for (const l of this.data.levels) {
+                    if (l.goals.find(g => g.id === goalId)) return l.id;
+                }
+                return null;
+            },
+
+            getGoalById(id) {
+                for (const l of this.data.levels) {
+                    const g = l.goals.find(g => g.id === id);
+                    if (g) return g;
+                }
+                return null;
+            },
+
+            updatePhaseActivity(goalId, phaseKey, actIdx, value) {
+                const goal = this.getGoalById(goalId);
+                if (goal && goal.phases[phaseKey]) {
+                    goal.phases[phaseKey].activities[actIdx].name = value;
+                    this.save();
+                }
+            },
+
+            removePhaseActivity(goalId, phaseKey, actIdx) {
+                const goal = this.getGoalById(goalId);
+                if (goal && goal.phases[phaseKey]) {
+                    goal.phases[phaseKey].activities.splice(actIdx, 1);
+                    this.save();
+                }
+            },
+
+            updateRoutineActivity(goalId, phaseKey, dayIdx, actIdx, value) {
+                const goal = this.getGoalById(goalId);
+                // Ensure structure
+                if (goal.phases[phaseKey] && !goal.phases[phaseKey].routine) {
+                    goal.phases[phaseKey].routine = { 0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [] };
+                }
+                const routine = goal.phases[phaseKey].routine;
+                if (routine[dayIdx] && routine[dayIdx][actIdx]) {
+                    routine[dayIdx][actIdx].name = value;
+                    this.save();
+                }
+            },
+
+            updateDayObjective(goalId, phaseKey, dayIdx, objective) {
+                const goal = this.getGoalById(goalId);
+                if (!goal || !goal.phases[phaseKey]) return;
+
+                if (!goal.phases[phaseKey].dayObjectives) {
+                    goal.phases[phaseKey].dayObjectives = {};
+                }
+
+                goal.phases[phaseKey].dayObjectives[dayIdx] = objective;
+                this.save();
+            },
+
+            addRoutineActivity(goalId, phaseKey, dayIdx) {
+                const goal = this.getGoalById(goalId);
+                if (goal.phases[phaseKey] && !goal.phases[phaseKey].routine) {
+                    goal.phases[phaseKey].routine = { 0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [] };
+                }
+                goal.phases[phaseKey].routine[dayIdx].push({ name: '', completed: false });
+                this.save();
+            },
+
+            removeRoutineActivity(goalId, phaseKey, dayIdx, actIdx) {
+                const goal = this.getGoalById(goalId);
+                if (goal.phases[phaseKey] && goal.phases[phaseKey].routine) {
+                    goal.phases[phaseKey].routine[dayIdx].splice(actIdx, 1);
+                    this.save();
+                }
+            },
+
+            copyWeeklyRoutine(goalId, phaseKey, sourceDayIdx) {
+                const goal = this.getGoalById(goalId);
+                const routine = goal.phases[phaseKey]?.routine;
+                if (!routine) return;
+
+                const source = routine[sourceDayIdx]; // Array of acts
+                // Copy to all other days
+                for (let i = 0; i <= 6; i++) {
+                    if (i == sourceDayIdx) continue;
+                    // Deep copy items
+                    routine[i] = source.map(a => ({ ...a }));
+                }
+                this.save();
+            },
+
+            getPhaseKey(dateStr, type = 'monthly') {
+                const date = new Date(dateStr + 'T00:00:00');
+                const m = date.getMonth(); // 0-11
+                const y = date.getFullYear();
+
+                if (type === 'semiannual') {
+                    return `${y}-S${m < 6 ? 1 : 2}`;
+                } else if (type === 'quarterly') {
+                    return `${y}-Q${Math.floor(m / 3) + 1}`;
+                } else if (type === 'bimonthly') {
+                    return `${y}-B${Math.floor(m / 2) + 1}`;
+                } else {
+                    // Monthly default
+                    return `${y}-${String(m + 1).padStart(2, '0')}`;
+                }
+            },
+
+            checkGoalBonus(date, goalId) {
+                // Award 15 XP bonus if ALL activities for this goal on this date are completed
+                const goal = this.getGoalById(goalId);
+                if (!goal) return;
+
+                // Get the phase and day's activities
+                const phaseKey = this.getPhaseKey(date, goal.phaseType || 'monthly');
+                const phase = goal.phases?.[phaseKey];
+                if (!phase) return;
+
+                // Determine day of week
+                const dateObj = new Date(date + 'T00:00:00');
+                const dayOfWeek = dateObj.getDay();
+
+                // Get activities for this day
+                let dailyActivities = [];
+                if (phase.routine && phase.routine[dayOfWeek]) {
+                    dailyActivities = phase.routine[dayOfWeek];
+                } else if (phase.activities) {
+                    dailyActivities = phase.activities; // Legacy fallback
+                }
+
+                if (dailyActivities.length === 0) return; // No activities to check
+
+                // Check if ALL activities are completed
+                const allCompleted = dailyActivities.every((act, idx) => {
+                    const key = `${goalId}_${idx}`;
+                    return this.data.activityLog[date]?.[key] === true;
+                });
+
+                // Award bonus if all complete and not already awarded today
+                const bonusKey = `${goalId}_bonus`;
+                const bonusAlreadyAwarded = this.data.activityLog[date]?.[bonusKey];
+
+                if (allCompleted && !bonusAlreadyAwarded) {
+                    this.addXP(15);
+                    this.data.activityLog[date][bonusKey] = true;
+                    // console.log(`🎉 Bonus! +15 XP por completar todas las actividades de ${goal.name}`); // Removed for production
+                } else if (!allCompleted && bonusAlreadyAwarded) {
+                    // Remove bonus if user unchecks an activity
+                    this.addXP(-15);
+                    delete this.data.activityLog[date][bonusKey];
+                }
+            },
+
+            updateSavings(amount) {
+                this.data.modules.savings.balance += Number(amount);
+                this.data.modules.savings.logs.push({ date: new Date().toISOString(), amount: Number(amount) });
+                this.save();
+                App.renderView('savings'); // Re-render
+            },
+
+            saveJournal(date, text) {
+                this.data.modules.journal[date] = text;
+                this.save();
+            }
+        };
+
+        // --- APP CONTROLLER ---
+        const App = {
+            state: {
+                view: 'dashboard',
+                currentDate: Utils.getTodayISO(),
+                activeLevelId: null,
+                activeGoalId: null
+            },
+
+            init() {
+                // Disable browser's automatic scroll restoration
+                if ('scrollRestoration' in history) {
+                    history.scrollRestoration = 'manual';
+                }
+
+                // Force scroll to top
+                window.scrollTo(0, 0);
+
+                Store.init();
+                this.setupHeaderActions();
+                this.renderView('dashboard');
+                lucide.createIcons();
+            },
+
+            setupHeaderActions() {
+                const datePicker = document.getElementById('native-date-picker');
+                const dateText = document.getElementById('current-date-text');
+
+                // Initial set
+                datePicker.value = this.state.currentDate;
+                this.updateDateDisplay();
+
+                // On Change
+                datePicker.addEventListener('change', (e) => {
+                    this.state.currentDate = e.target.value;
+                    this.updateDateDisplay();
+                    this.renderView('dashboard'); // Refresh dashboard for new date
+                });
+            },
+
+            updateDateDisplay() {
+                const dateText = document.getElementById('current-date-text');
+                dateText.textContent = Utils.formatDateFriends(this.state.currentDate);
+                this.updateHeader();
+            },
+
+            updateHeader() {
+                document.getElementById('xp-counter').textContent = Store.data.user.xp;
+                const balance = Store.data.modules.savings.balance;
+                document.getElementById('savings-counter').textContent = '₡' + balance.toLocaleString('es-CR');
+            },
+
+            renderView(viewName, params = {}) {
+                const container = document.getElementById('app-container');
+                container.innerHTML = ''; // Clear current
+                this.state.view = viewName;
+
+                switch (viewName) {
+                    case 'dashboard':
+                        container.appendChild(this.Views.Dashboard());
+                        break;
+                    case 'level_details': // Show goals for a level
+                        container.appendChild(this.Views.LevelDetails(params.levelId));
+                        break;
+                    case 'savings':
+                        container.appendChild(this.Views.Savings());
+                        break;
+                    case 'shop':
+                        container.appendChild(this.Views.Shop());
+                        break;
+                    case 'journal':
+                        container.appendChild(this.Views.Journal());
+                        break;
+                    case 'goal_editor':
+                        container.appendChild(this.Views.GoalEditor(params.goalId));
+                        break;
+                    case 'phase_editor':
+                        container.appendChild(this.Views.PhaseEditor(params.goalId, params.monthKey, params.monthName));
+                        break;
+                    case 'level_creator':
+                        container.appendChild(this.Views.LevelCreator());
+                        break;
+                    case 'level_editor':
+                        container.appendChild(this.Views.LevelEditor(params.levelId));
+                        break;
+                    // Add other views...
+                    default:
+                        container.innerHTML = '<p class="text-center text-slate-500">Vista no encontrada</p>';
+                }
+
+                lucide.createIcons();
+
+                // Scroll to top after content is fully rendered
+                setTimeout(() => window.scrollTo(0, 0), 10);
+            },
+
+            // --- VIEW COMPONENTS ---
+            Views: {
+                Dashboard() {
+                    const div = document.createElement('div');
+                    div.className = 'space-y-8 animate-fade-in';
+
+                    // 1. Levels Navigation
+                    const levelsGrid = document.createElement('div');
+                    levelsGrid.className = 'grid gap-3';
+                    levelsGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(120px, 1fr))';
+
+                    Store.data.levels.forEach(level => {
+                        const btn = document.createElement('button');
+                        // Dynamic Color mapping for Tailwind classes (simplified for inline styles or specific mappings)
+                        const colorMap = {
+                            'green': 'bg-green-500/10 border-green-500/20 text-green-400 hover:bg-green-500/20',
+                            'blue': 'bg-blue-500/10 border-blue-500/20 text-blue-400 hover:bg-blue-500/20',
+                            'purple': 'bg-purple-500/10 border-purple-500/20 text-purple-400 hover:bg-purple-500/20',
+                            'red': 'bg-red-500/10 border-red-500/20 text-red-400 hover:bg-red-500/20',
+                            'yellow': 'bg-yellow-500/10 border-yellow-500/20 text-yellow-400 hover:bg-yellow-500/20',
+                            'cyan': 'bg-cyan-500/10 border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20',
+                            'pink': 'bg-pink-500/10 border-pink-500/20 text-pink-400 hover:bg-pink-500/20',
+                            'orange': 'bg-orange-500/10 border-orange-500/20 text-orange-400 hover:bg-orange-500/20'
+                        };
+                        btn.className = `relative p-4 rounded-xl border transition-all ${colorMap[level.color] || colorMap['green']}`;
+                        btn.innerHTML = `
+                            <div class="flex items-center justify-between mb-2">
+                                <i data-lucide="${level.icon}" class="w-6 h-6"></i>
+                                <button onclick="event.stopPropagation(); App.renderView('level_editor', { levelId: '${level.id}' })" class="p-1 hover:bg-slate-700/50 rounded transition-colors" title="Editar nivel">
+                                    <i data-lucide="settings" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            <div class="text-sm font-bold">${level.name}</div>
+                            <div class="text-xs opacity-70 mt-1">${level.goals.length} meta${level.goals.length !== 1 ? 's' : ''}</div>
+                        `;
+                        btn.onclick = () => App.renderView('level_details', { levelId: level.id });
+                        levelsGrid.appendChild(btn);
+                    });
+                    div.appendChild(levelsGrid);
+
+                    // Add New Level Button
+                    const addLevelBtn = document.createElement('button');
+                    addLevelBtn.className = 'w-full py-3 rounded-xl border-2 border-dashed border-slate-600 text-slate-400 flex items-center justify-center gap-2 hover:bg-slate-800/50 hover:border-slate-500 transition-all mt-3';
+                    addLevelBtn.innerHTML = `<i data-lucide="plus-circle" class="w-4 h-4"></i> Nuevo Nivel`;
+                    addLevelBtn.onclick = () => App.renderView('level_creator');
+                    div.appendChild(addLevelBtn);
+
+                    // 2. Special Modules Grid
+                    const modulesDiv = document.createElement('div');
+                    modulesDiv.className = 'grid grid-cols-3 gap-3';
+
+                    // Button Helper
+                    const createModuleBtn = (label, icon, view, color) => {
+                        const btn = document.createElement('button');
+                        btn.className = `flex flex-col items-center justify-center p-3 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:bg-slate-800 transition-colors`;
+                        btn.onclick = () => App.renderView(view);
+                        btn.innerHTML = `
+                            <i data-lucide="${icon}" class="w-5 h-5 ${color} mb-1.5"></i>
+                            <span class="text-[10px] text-slate-400 font-medium uppercase">${label}</span>
+                        `;
+                        return btn;
+                    };
+
+                    modulesDiv.appendChild(createModuleBtn('Bóveda', 'wallet', 'savings', 'text-cyan-400'));
+                    modulesDiv.appendChild(createModuleBtn('Tienda', 'shopping-bag', 'shop', 'text-amber-400'));
+                    modulesDiv.appendChild(createModuleBtn('Diario', 'book', 'journal', 'text-pink-400'));
+
+                    div.appendChild(modulesDiv);
+
+                    // 3. Rachas por Meta (Horizontal Streaks)
+                    const streaksSection = document.createElement('div');
+                    streaksSection.className = 'space-y-3';
+
+                    const streaksHeader = document.createElement('div');
+                    streaksHeader.className = 'flex items-center gap-2 mb-3';
+                    streaksHeader.innerHTML = `
+                        <i data-lucide="flame" class="w-5 h-5 text-orange-400"></i>
+                        <h3 class="text-lg font-bold text-slate-200">Rachas y Constancia</h3>
+                    `;
+                    streaksSection.appendChild(streaksHeader);
+
+                    // Generate streak row for each goal
+                    Store.data.levels.forEach(level => {
+                        level.goals.forEach(goal => {
+                            const streakCard = document.createElement('div');
+                            streakCard.className = 'glass-card p-3 rounded-xl';
+
+                            // Header with goal name
+                            const goalHeader = document.createElement('div');
+                            goalHeader.className = 'flex items-center justify-between mb-2';
+
+                            const colorMap = {
+                                'green': 'text-green-400',
+                                'blue': 'text-blue-400',
+                                'purple': 'text-purple-400',
+                                'red': 'text-red-400',
+                                'yellow': 'text-yellow-400',
+                                'cyan': 'text-cyan-400',
+                                'pink': 'text-pink-400',
+                                'orange': 'text-orange-400'
+                            };
+
+                            goalHeader.innerHTML = `
+                                <div class="flex items-center gap-2">
+                                    <i data-lucide="${level.icon}" class="w-4 h-4 ${colorMap[level.color] || 'text-slate-400'}"></i>
+                                    <span class="text-sm font-medium text-slate-300">${goal.name}</span>
+                                </div>
+                                <span class="text-xs text-slate-500">Este mes</span>
+                            `;
+                            streakCard.appendChild(goalHeader);
+
+                            // Horizontal streak grid (current month)
+                            const streakGrid = document.createElement('div');
+                            streakGrid.className = 'flex gap-1 overflow-x-auto pb-1';
+
+                            const today = new Date(App.state.currentDate + 'T00:00:00');
+                            const year = today.getFullYear();
+                            const month = today.getMonth();
+                            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                            for (let day = 1; day <= daysInMonth; day++) {
+                                const date = new Date(year, month, day);
+                                const dateStr = date.toISOString().split('T')[0];
+                                const isToday = dateStr === App.state.currentDate;
+
+                                // Calculate completion for this specific goal
+                                const phaseKey = Store.getPhaseKey(dateStr, goal.phaseType || 'monthly');
+                                const phase = goal.phases?.[phaseKey];
+
+                                let completion = 0;
+                                if (phase) {
+                                    const dateObj = new Date(dateStr + 'T00:00:00');
+                                    const dayOfWeek = dateObj.getDay();
+
+                                    let dailyActs = [];
+                                    if (phase.routine && phase.routine[dayOfWeek]) {
+                                        dailyActs = phase.routine[dayOfWeek];
+                                    } else if (phase.activities) {
+                                        dailyActs = phase.activities;
+                                    }
+
+                                    if (dailyActs.length > 0) {
+                                        let completed = 0;
+                                        dailyActs.forEach((act, idx) => {
+                                            const key = `${goal.id}_${idx}`;
+                                            if (Store.data.activityLog[dateStr]?.[key]) {
+                                                completed++;
+                                            }
+                                        });
+                                        completion = (completed / dailyActs.length) * 100;
+                                    }
+                                }
+
+                                const cell = document.createElement('div');
+                                cell.className = 'w-2 h-2 rounded-sm transition-all hover:scale-125 cursor-pointer flex-shrink-0';
+
+                                // Color based on completion
+                                let bgColor = 'bg-slate-800/30'; // 0%
+                                if (completion > 0 && completion < 100) {
+                                    const opacity = Math.floor((completion / 100) * 50) + 20;
+                                    bgColor = `bg-${level.color}-500/${opacity}`; // Partial with level color
+                                } else if (completion === 100) {
+                                    bgColor = `bg-${level.color}-400 shadow-lg shadow-${level.color}-500/50`; // Perfect - neon
+                                }
+
+                                if (isToday) {
+                                    cell.classList.add('ring-1', 'ring-yellow-400');
+                                }
+
+                                cell.className += ` ${bgColor}`;
+                                cell.title = `Día ${day}: ${completion.toFixed(0)}%`;
+
+                                streakGrid.appendChild(cell);
+                            }
+
+                            streakCard.appendChild(streakGrid);
+                            streaksSection.appendChild(streakCard);
+                        });
+                    });
+
+                    div.appendChild(streaksSection);
+
+                    // 4. Daily Checklist (Grouped by Level->Goal)
+                    const checklistSection = document.createElement('section');
+                    checklistSection.className = 'space-y-4';
+
+                    const title = document.createElement('h2');
+                    title.className = 'text-lg font-bold text-slate-100 flex items-center gap-2';
+                    title.innerHTML = `<i data-lucide="check-square" class="w-5 h-5 text-indigo-400"></i> Actividades de Hoy`;
+                    checklistSection.appendChild(title);
+
+                    const tasksContainer = document.createElement('div');
+                    tasksContainer.className = 'space-y-4';
+
+                    let hasTasks = false;
+
+                    Store.data.levels.forEach(level => {
+                        // Find active goals/phases for this date
+                        level.goals.forEach(goal => {
+                            // Get phase key and phase object first
+                            const phaseKey = Store.getPhaseKey(App.state.currentDate, goal.phaseType || 'monthly');
+                            const phase = goal.phases?.[phaseKey];
+
+                            // Determine Day of Week (0-6)
+                            const dateObj = new Date(App.state.currentDate + 'T00:00:00');
+                            const dayOfWeek = dateObj.getDay(); // 0=Sun, 1=Mon...
+
+                            // Fetch Routine for this Day
+                            let dailyActs = [];
+                            if (phase?.routine && phase.routine[dayOfWeek]) {
+                                dailyActs = phase.routine[dayOfWeek];
+                            } else if (phase?.activities) {
+                                // Fallback for legacy data
+                                dailyActs = phase.activities;
+                            }
+
+                            if (dailyActs.length === 0) return; // Skip if no activities
+
+                            hasTasks = true;
+
+                            // Render Goal Group
+                            const goalCard = document.createElement('div');
+                            goalCard.className = 'glass-card rounded-xl p-4 border-l-4';
+                            goalCard.style.borderLeftColor = level.color === 'green' ? '#22c55e' : level.color === 'blue' ? '#3b82f6' : '#a855f7';
+
+                            const goalHeader = document.createElement('div');
+                            goalHeader.className = 'flex justify-between items-start mb-3';
+                            goalHeader.innerHTML = `<h3 class="font-bold text-slate-200">${goal.name}</h3>`;
+                            goalCard.appendChild(goalHeader);
+
+                            hasTasks = true;
+
+                            const list = document.createElement('ul');
+                            list.className = 'space-y-2';
+
+                            dailyActs.forEach((act, idx) => {
+                                const li = document.createElement('li');
+
+                                const isChecked = Store.data.activityLog[App.state.currentDate]?.[`${goal.id}_${idx}`];
+
+                                li.className = `flex items-center gap-3 p-2 rounded-lg transition-colors cursor-pointer ${isChecked ? 'bg-slate-700/30' : 'hover:bg-slate-800/50'}`;
+                                li.onclick = (e) => {
+                                    // Prevent double toggle if clicking Checkbox directly vs row
+                                    if (e.target.type !== 'checkbox') {
+                                        Store.toggleActivity(App.state.currentDate, goal.id, idx);
+                                    }
+                                };
+
+                                li.innerHTML = `
+                                    <div class="relative flex items-center justify-center w-5 h-5">
+                                        <input type="checkbox"
+                                            class="peer appearance-none w-5 h-5 border-2 border-slate-500 rounded checked:bg-indigo-500 checked:border-indigo-500 transition-colors cursor-pointer"
+                                            ${isChecked ? 'checked' : ''}
+                                            onclick="Store.toggleActivity('${App.state.currentDate}', '${goal.id}', '${idx}'); event.stopPropagation();"
+                                        >
+                                        <i data-lucide="check" class="w-3 h-3 text-white absolute opacity-0 peer-checked:opacity-100 pointer-events-none"></i>
+                                    </div>
+                                    <span class="text-sm ${isChecked ? 'text-slate-500 line-through' : 'text-slate-300'}">${act.name}</span>
+                                `;
+                                list.appendChild(li);
+                            });
+
+                            goalCard.appendChild(list);
+                            tasksContainer.appendChild(goalCard);
+                        });
+                    });
+
+                    if (!hasTasks) {
+                        tasksContainer.innerHTML = `
+                            <div class="text-center py-10 opacity-50">
+                                <i data-lucide="calendar-off" class="w-10 h-10 mx-auto mb-2 text-slate-500"></i>
+                                <p class="text-sm">No hay actividades programadas para hoy.</p>
+                                <p class="text-xs mt-1">Añade metas en los niveles.</p>
+                            </div>
+                        `;
+                    }
+
+                    checklistSection.appendChild(tasksContainer);
+                    div.appendChild(checklistSection);
+
+                    // Reset Button (Bottom)
+                    const resetBtn = document.createElement('button');
+                    resetBtn.className = "w-full py-4 text-xs text-red-500/50 hover:text-red-500 mt-8";
+                    resetBtn.innerText = "RESET TOTAL (Developer DB Wipe)";
+                    resetBtn.onclick = () => Store.reset();
+                    div.appendChild(resetBtn);
+
+                    return div;
+                },
+
+                LevelDetails(levelId) {
+                    const level = Store.data.levels.find(l => l.id === levelId);
+                    const div = document.createElement('div');
+                    div.className = 'space-y-6 animate-fade-in';
+
+                    // Header
+                    div.innerHTML = `
+                        <div class="flex items-center gap-4 mb-6">
+                            <button onclick="App.renderView('dashboard')" class="p-2 -ml-2 rounded-full hover:bg-slate-800">
+                                <i data-lucide="arrow-left" class="w-6 h-6 text-slate-400"></i>
+                            </button>
+                            <div>
+                                <h2 class="text-2xl font-bold text-${level.color}-400">${level.name}</h2>
+                                <p class="text-sm text-slate-500">Gestión de Metas</p>
+                            </div>
+                        </div>
+                    `;
+
+                    // Goals List
+                    const goalsList = document.createElement('div');
+                    goalsList.className = 'space-y-4';
+
+                    if (level.goals.length === 0) {
+                        goalsList.innerHTML = `<p class="text-center text-slate-500 py-4">Sin metas definidas.</p>`;
+                    } else {
+                        level.goals.forEach(goal => {
+                            const card = document.createElement('div');
+                            card.className = 'glass-card p-4 rounded-xl flex items-center justify-between group';
+                            card.innerHTML = `
+                                <div>
+                                    <h3 class="font-bold text-slate-200">${goal.name}</h3>
+                                    <p class="text-xs text-slate-500">Plazo: ${goal.deadline || 'Indefinido'}</p>
+                                </div>
+                                <button class="p-2 text-slate-500 hover:text-indigo-400">
+                                    <i data-lucide="edit-2" class="w-4 h-4"></i>
+                                </button>
+                            `;
+                            // Edit Click
+                            card.onclick = () => App.renderView('goal_editor', { goalId: goal.id });
+                            goalsList.appendChild(card);
+                        });
+                    }
+                    div.appendChild(goalsList);
+
+                    // Add Button
+                    const addBtn = document.createElement('button');
+                    addBtn.className = 'w-full py-3 rounded-xl border border-dashed border-slate-600 text-slate-400 flex items-center justify-center gap-2 hover:bg-slate-800/50 hover:border-slate-500 transition-all';
+                    addBtn.innerHTML = `<i data-lucide="plus" class="w-4 h-4"></i> Nueva Meta`;
+                    addBtn.onclick = () => {
+                        // Use Prompt for MVP speed, build full UI later
+                        const name = prompt("Nombre de la meta:");
+                        if (name) {
+                            level.goals.push({
+                                id: Utils.generateId(),
+                                name: name,
+                                deadline: '2026-12-31',
+                                activities: [ // Default mockup activity
+                                    { name: 'Actividad de ejemplo (Editarme)', frequency: 'daily' }
+                                ]
+                            });
+                            Store.save();
+                            App.renderView('level_details', { levelId });
+                        }
+                    };
+                    div.appendChild(addBtn);
+
+                    return div;
+                },
+
+                GoalEditor(goalId) {
+                    const goal = Store.getGoalById(goalId);
+                    if (!goal) return App.renderView('dashboard');
+
+                    // Get Level Info for Theming
+                    const levelId = Store.getLevelIdByGoalId(goalId);
+                    const level = Store.data.levels.find(l => l.id === levelId);
+
+                    // Button Color Mapping
+                    const btnColors = {
+                        green: 'bg-green-600 hover:bg-green-500 shadow-green-600/30',
+                        blue: 'bg-blue-600 hover:bg-blue-500 shadow-blue-600/30',
+                        purple: 'bg-purple-600 hover:bg-purple-500 shadow-purple-600/30'
+                    }[level.color] || 'bg-indigo-600 hover:bg-indigo-500 shadow-indigo-600/30';
+
+                    const div = document.createElement('div');
+                    div.className = 'space-y-6 animate-fade-in pb-20';
+
+                    div.innerHTML = `
+                        <div class="flex items-center gap-4 mb-2">
+                            <button onclick="App.renderView('level_details', { levelId: '${Store.getLevelIdByGoalId(goalId)}' })" class="p-2 -ml-2 rounded-full hover:bg-slate-800">
+                                <i data-lucide="arrow-left" class="w-6 h-6 text-slate-400"></i>
+                            </button>
+                            <div>
+                                <h2 class="text-xl font-bold text-slate-200">${goal.name}</h2>
+                                <p class="text-xs text-slate-500">Calendario Maestro 2026</p>
+                            </div>
+                        </div>
+                    `;
+
+                    // Phase Configuration
+                    const phaseType = goal.phaseType || 'monthly';
+                    let gridItems = [];
+
+                    if (phaseType === 'monthly') {
+                        gridItems = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'].map((n, i) => ({ name: n, key: `2026-${String(i + 1).padStart(2, '0')}` }));
+                    } else if (phaseType === 'bimonthly') {
+                        gridItems = ['Bim 1', 'Bim 2', 'Bim 3', 'Bim 4', 'Bim 5', 'Bim 6'].map((n, i) => ({ name: n, key: `2026-B${i + 1}` }));
+                    } else if (phaseType === 'quarterly') {
+                        gridItems = ['Tri 1', 'Tri 2', 'Tri 3', 'Tri 4'].map((n, i) => ({ name: n, key: `2026-Q${i + 1}` }));
+                    } else if (phaseType === 'semiannual') {
+                        gridItems = ['Sem 1', 'Sem 2'].map((n, i) => ({ name: n, key: `2026-S${i + 1}` }));
+                    }
+
+                    const currentPhaseKey = Store.getPhaseKey(App.state.currentDate, phaseType);
+
+                    // Calendar Grid
+                    const grid = document.createElement('div');
+                    grid.className = `grid gap-3 ${phaseType === 'monthly' ? 'grid-cols-3' : 'grid-cols-2'}`;
+
+                    gridItems.forEach((item) => {
+                        const phaseData = goal.phases?.[item.key];
+                        const hasData = phaseData && (phaseData.objective || phaseData.activities?.length > 0 || phaseData.routine);
+                        const isCurrent = item.key === currentPhaseKey;
+
+                        const btn = document.createElement('button');
+                        btn.className = `relative p-3 rounded-xl border flex flex-col items-center justify-center min-h-[80px] transition-all hover:scale-105 active:scale-95
+                             ${isCurrent ? 'bg-slate-800/80 border-amber-500/50 shadow-[0_0_15px_-3px_rgba(245,158,11,0.3)]' : 'bg-slate-800/30 border-slate-700/50 hover:bg-slate-800'}`;
+
+                        btn.onclick = () => App.renderView('phase_editor', { goalId, monthKey: item.key, monthName: item.name });
+
+                        // Get level color for indicator
+                        const levelColorClass = {
+                            'green': 'bg-green-500',
+                            'blue': 'bg-blue-500',
+                            'purple': 'bg-purple-500',
+                            'red': 'bg-red-500',
+                            'yellow': 'bg-yellow-500',
+                            'cyan': 'bg-cyan-500',
+                            'pink': 'bg-pink-500',
+                            'orange': 'bg-orange-500'
+                        }[level.color] || 'bg-indigo-500';
+
+                        btn.innerHTML = `
+                            <span class="text-xs font-bold uppercase mb-1 ${isCurrent ? 'text-amber-400' : 'text-slate-400'}">${item.name}</span>
+                            <div class="flex gap-1">
+                                ${hasData ? `<div class="w-1.5 h-1.5 rounded-full ${levelColorClass}"></div>` : ''}
+                                ${isCurrent ? '<div class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></div>' : ''}
+                            </div>
+                        `;
+
+                        grid.appendChild(btn);
+                    });
+
+                    div.appendChild(grid);
+
+                    // Render Lucide icons
+                    setTimeout(() => lucide.createIcons(), 0);
+
+                    // Full Edit Settings
+                    const settingsDiv = document.createElement('div');
+                    settingsDiv.className = "mt-6 p-4 glass-card rounded-xl space-y-4";
+
+                    settingsDiv.innerHTML = `
+                        <h3 class="text-sm font-bold text-slate-300">Configuración de la Meta</h3>
+                        <div>
+                            <label class="block text-xs text-slate-500 mb-1">Nombre</label>
+                            <input id="edit-name" type="text" value="${goal.name}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white text-sm focus:border-indigo-500 outline-none">
+                        </div>
+                         <div>
+                            <label class="block text-xs text-slate-500 mb-1">Tipo de Fases</label>
+                            <select id="edit-phasetype" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white text-sm focus:border-indigo-500 outline-none appearance-none">
+                                <option value="monthly" ${phaseType === 'monthly' ? 'selected' : ''}>Mensual (12 Meses)</option>
+                                <option value="bimonthly" ${phaseType === 'bimonthly' ? 'selected' : ''}>Bimensual (6 Fases)</option>
+                                <option value="quarterly" ${phaseType === 'quarterly' ? 'selected' : ''}>Trimestral (4 Fases)</option>
+                                <option value="semiannual" ${phaseType === 'semiannual' ? 'selected' : ''}>Semestral (2 Fases)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-500 mb-1">Fecha Límite</label>
+                            <input id="edit-deadline" type="date" value="${goal.deadline || ''}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white text-sm focus:border-indigo-500 outline-none">
+                        </div>
+                        <div class="flex gap-2 pt-2">
+                             <button id="save-settings" class="flex-1 ${btnColors} text-white py-2.5 rounded-lg text-sm font-medium transition-colors shadow-lg">Guardar Cambios</button>
+                             <button id="delete-goal" class="px-4 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 rounded-lg"><i data-lucide="trash-2" class="w-5 h-5"></i></button>
+                        </div>
+                    `;
+
+                    div.appendChild(settingsDiv);
+
+                    // Bind Actions
+                    setTimeout(() => {
+                        div.querySelector('#save-settings').onclick = () => {
+                            goal.name = document.getElementById('edit-name').value;
+                            goal.deadline = document.getElementById('edit-deadline').value;
+                            goal.phaseType = document.getElementById('edit-phasetype').value;
+                            Store.save();
+                            alert('Configuración actualizada');
+                            App.renderView('goal_editor', { goalId }); // Refresh to show new grid
+                        };
+
+                        div.querySelector('#delete-goal').onclick = () => {
+                            if (confirm(`¿Estás SEGURA de eliminar la meta "${goal.name}" y todo su progreso?`)) {
+                                const levelId = Store.getLevelIdByGoalId(goalId);
+                                const level = Store.data.levels.find(l => l.id === levelId);
+                                level.goals = level.goals.filter(g => g.id !== goalId);
+                                Store.save();
+                                App.renderView('level_details', { levelId });
+                            }
+                        };
+                    }, 0);
+
+                    return div;
+                },
+
+                PhaseEditor(goalId, monthKey, monthName) {
+                    const goal = Store.getGoalById(goalId);
+                    if (!goal) return App.renderView('dashboard');
+
+                    // Get Level Info for Theming
+                    const levelId = Store.getLevelIdByGoalId(goalId);
+                    const level = Store.data.levels.find(l => l.id === levelId);
+
+                    // Theme Colors
+                    const theme = {
+                        green: 'text-green-400 border-green-500',
+                        blue: 'text-blue-400 border-blue-500',
+                        purple: 'text-purple-400 border-purple-500'
+                    }[level.color] || 'text-indigo-400 border-indigo-500';
+                    const titleColor = theme.split(' ')[0];
+
+                    // Init phases
+                    if (!goal.phases) goal.phases = {};
+                    if (!goal.phases[monthKey]) goal.phases[monthKey] = { objective: '', activities: [] }; // Legacy init
+
+                    const phase = goal.phases[monthKey];
+
+                    // Migrate/Init Routine if missing
+                    if (!phase.routine) {
+                        phase.routine = { 0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [] };
+                    }
+
+                    const div = document.createElement('div');
+                    div.className = 'space-y-6 animate-fade-in pb-20';
+
+                    div.innerHTML = `
+                         <div class="flex items-center gap-4 mb-4">
+                             <button onclick="App.renderView('goal_editor', { goalId: '${goalId}' })" class="p-2 -ml-2 rounded-full hover:bg-slate-800">
+                                <i data-lucide="arrow-left" class="w-6 h-6 text-slate-400"></i>
+                            </button>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold ${titleColor}">${monthName}</h2>
+                                <p class="text-sm text-slate-400 font-medium">${goal.name} <span class="text-slate-600 mx-2">|</span> ${level.name}</p>
+                            </div>
+                            <button id="copy-month-btn" class="px-4 py-2 bg-indigo-500/20 hover:bg-indigo-500/30 border border-indigo-500/30 rounded-lg text-indigo-400 flex items-center gap-2 transition-colors" title="Copiar al siguiente mes">
+                                <i data-lucide="copy" class="w-4 h-4"></i>
+                                <span class="text-sm font-medium">Copiar mes</span>
+                            </button>
+                        </div>
+
+                        <!-- Objective Input -->
+                        <div class="glass-card p-4 rounded-xl border-l-4 ${theme.split(' ')[1]}">
+                            <label class="block text-xs font-bold text-slate-500 mb-1 uppercase tracking-wider">Objetivo de la Fase</label>
+                            <input id="phase-obj" type="text" value="${phase.objective || ''}" placeholder="Define tu objetivo principal para este periodo..." class="w-full bg-transparent text-lg text-slate-200 placeholder-slate-600 focus:outline-none font-medium mb-3">
+
+                            <label class="block text-xs font-bold text-slate-500 mb-1 uppercase tracking-wider">Notas y Detalles</label>
+                            <textarea id="phase-notes" placeholder="Añade información adicional: conceptos clave, vocabulario, habilidades, recursos, etc..." class="w-full bg-slate-900/30 border border-slate-700/50 rounded-lg p-3 text-sm text-slate-300 placeholder-slate-600 focus:border-indigo-500 focus:bg-slate-900/50 outline-none resize-none transition-colors" rows="4">${phase.notes || ''}</textarea>
+                        </div>
+                        `;
+
+                    // Weekly Grid Layout (Monday, Tuesday ... Sunday)
+                    const days = [
+                        { i: 1, n: 'Lunes' }, { i: 2, n: 'Martes' }, { i: 3, n: 'Miércoles' }, { i: 4, n: 'Jueves' }, { i: 5, n: 'Viernes' }, { i: 6, n: 'Sábado' }, { i: 0, n: 'Domingo' }
+                    ];
+
+                    const gridContainer = document.createElement('div');
+                    gridContainer.className = "grid grid-cols-1 md:grid-cols-4 lg:grid-cols-7 gap-4 items-start";
+
+                    days.forEach((day) => {
+                        const dayCol = document.createElement('div');
+                        dayCol.className = "bg-slate-900/50 border border-slate-700/50 rounded-xl overflow-hidden flex flex-col h-full min-h-[300px]";
+
+                        const btnHoverColor = {
+                            green: 'hover:text-green-400 hover:bg-green-900/20',
+                            blue: 'hover:text-blue-400 hover:bg-blue-900/20',
+                            purple: 'hover:text-purple-400 hover:bg-purple-900/20'
+                        }[level.color] || 'hover:text-indigo-400 hover:bg-indigo-900/20';
+
+                        // Get current day objective
+                        const dayObjective = phase.dayObjectives?.[day.i] || '';
+
+                        // Header
+                        dayCol.innerHTML = `
+                            <div class="bg-slate-800/80 p-3 border-b border-slate-700/50">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold text-slate-300 text-sm">${day.n}</span>
+                                    <div class="flex gap-1">
+                                        <button class="p-1 hover:bg-slate-700 rounded text-slate-500 ${btnHoverColor} transition-colors" title="Agregar Actividad" onclick="Store.addRoutineActivity('${goalId}', '${monthKey}', ${day.i}); App.renderView('phase_editor', { goalId: '${goalId}', monthKey: '${monthKey}', monthName: '${monthName}' })">
+                                            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                                        </button>
+                                         <button class="p-1 hover:bg-slate-700 rounded text-slate-500 ${btnHoverColor} transition-colors" title="Copiar a todos los días" onclick="if(confirm('¿Copiar ${day.n} a toda la semana?')) { Store.copyWeeklyRoutine('${goalId}', '${monthKey}', ${day.i}); App.renderView('phase_editor', { goalId: '${goalId}', monthKey: '${monthKey}', monthName: '${monthName}' }); }">
+                                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <input
+                                    type="text"
+                                    class="w-full bg-slate-900/50 border border-slate-700/50 rounded px-2 py-1 text-xs text-slate-400 placeholder-slate-600 focus:border-indigo-500 focus:text-slate-300 outline-none transition-colors"
+                                    placeholder="Objetivo del día (opcional)..."
+                                    value="${dayObjective}"
+                                    onchange="Store.updateDayObjective('${goalId}', '${monthKey}', ${day.i}, this.value)"
+                                />
+                            </div>
+            `;
+
+                        // Activities List
+                        const list = document.createElement('div');
+                        list.className = "p-2 space-y-2 flex-1";
+
+                        const acts = phase.routine[day.i] || [];
+                        acts.forEach((act, actIdx) => {
+                            const row = document.createElement('div');
+                            row.className = "group relative";
+                            row.innerHTML = `
+            <textarea class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-xs text-slate-200 focus:border-indigo-500 outline-none resize-none leading-tight" rows = "2" placeholder = "Actividad..." onchange = "Store.updateRoutineActivity('${goalId}', '${monthKey}', ${day.i}, ${actIdx}, this.value)" > ${act.name}</textarea >
+                <button class="absolute top-1 right-1 p-1 text-slate-600 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity" onclick="Store.removeRoutineActivity('${goalId}', '${monthKey}', ${day.i}, ${actIdx}); App.renderView('phase_editor', { goalId: '${goalId}', monthKey: '${monthKey}', monthName: '${monthName}' })">
+                    <i data-lucide="x" class="w-3 h-3"></i>
+                </button>
+        `;
+                            list.appendChild(row);
+                        });
+
+                        dayCol.appendChild(list);
+                        gridContainer.appendChild(dayCol);
+                    });
+
+                    div.appendChild(gridContainer);
+
+                    // Bind event after DOM is ready
+                    setTimeout(() => {
+                        const objInput = document.getElementById('phase-obj');
+                        if (objInput) {
+                            objInput.onchange = (e) => {
+                                phase.objective = e.target.value;
+                                Store.save();
+                            };
+                        }
+
+                        const notesInput = document.getElementById('phase-notes');
+                        if (notesInput) {
+                            notesInput.onchange = (e) => {
+                                phase.notes = e.target.value;
+                                Store.save();
+                            };
+                        }
+
+                        // Copy month button handler
+                        const copyBtn = document.getElementById('copy-month-btn');
+                        if (copyBtn) {
+                            copyBtn.onclick = () => {
+                                // Calculate next month
+                                const [year, month] = monthKey.split('-');
+                                const nextMonth = parseInt(month) === 12 ? 1 : parseInt(month) + 1;
+                                const nextYear = parseInt(month) === 12 ? parseInt(year) + 1 : parseInt(year);
+                                const nextKey = `${nextYear}-${String(nextMonth).padStart(2, '0')}`;
+
+                                const monthNames = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+                                const nextMonthName = monthNames[nextMonth - 1];
+
+                                if (confirm(`¿Copiar toda la rutina de ${monthName} a ${nextMonthName}?`)) {
+                                    goal.phases[nextKey] = JSON.parse(JSON.stringify(phase));
+                                    Store.save();
+                                    alert('✅ Rutina copiada exitosamente');
+                                    App.renderView('goal_editor', { goalId });
+                                }
+                            };
+                        }
+                    }, 100);
+
+                    return div;
+                },
+
+                Savings() {
+                    const div = document.createElement('div');
+                    div.className = 'space-y-6 animate-fade-in';
+
+                    const savings = Store.data.modules.savings;
+                    // Format currency
+                    const fmtCash = (n) => "₡" + n.toLocaleString('es-CR');
+
+                    // Header
+                    div.innerHTML = `
+            <div class="flex items-center gap-4 mb-6" >
+                            <button onclick="App.renderView('dashboard')" class="p-2 -ml-2 rounded-full hover:bg-slate-800">
+                                <i data-lucide="arrow-left" class="w-6 h-6 text-slate-400"></i>
+                            </button>
+                            <h2 class="text-2xl font-bold text-cyan-400">Bóveda de Ahorro</h2>
+                        </div >
+            `;
+
+                    // Card with Progress
+                    // Gradient: "azul oscuro a cian neón" -> from-slate-900 to-cyan-500? or pure gradient
+                    const card = document.createElement('div');
+                    card.className = 'relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br from-slate-900 via-cyan-950 to-cyan-900 border border-cyan-500/30 shadow-lg shadow-cyan-500/10';
+
+                    card.innerHTML = `
+            <div class="relative z-10 text-center" >
+                            <p class="text-cyan-200/70 text-sm uppercase tracking-widest font-medium mb-1">Saldo Total</p>
+                            <h3 class="text-4xl font-bold text-white mb-4 drop-shadow-md">${fmtCash(savings.balance)}</h3>
+
+                            <!--Fake Goal Progress(Mockup goal 1M ?)-- >
+                            <div class="w-full bg-slate-900/50 rounded-full h-3 mb-2 overflow-hidden border border-white/5">
+                                <div class="h-full bg-gradient-to-r from-blue-600 to-cyan-400" style="width: ${Math.min((savings.balance / 1000000) * 100, 100)}%"></div>
+                            </div>
+                            <p class="text-xs text-cyan-300/50 flex justify-between">
+                                <span>Inicio</span>
+                                <span>Meta: ₡1.000.000</span>
+                            </p>
+                        </div >
+                        < !--decorative glow-- >
+            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-cyan-500/20 blur-3xl rounded-full"></div>
+        `;
+                    div.appendChild(card);
+
+                    // Add Money Input
+                    const balanceCard = document.createElement('div');
+                    balanceCard.className = 'glass-card p-6 rounded-xl text-center';
+                    balanceCard.innerHTML = `
+            <div class="text-sm text-slate-400 mb-2" > Balance Total</div >
+                <div class="text-4xl font-bold text-cyan-400">₡${savings.balance.toLocaleString('es-CR')}</div>
+        `;
+                    div.appendChild(balanceCard);
+
+                    // Deposit Section
+                    const depositCard = document.createElement('div');
+                    depositCard.className = 'glass-card p-6 rounded-xl';
+                    depositCard.innerHTML = `
+            <h3 class="text-lg font-bold text-slate-200 mb-4 flex items-center gap-2">
+                <i data-lucide="plus-circle" class="w-5 h-5 text-green-400"></i>
+                            Depositar Dinero
+                        </h3>
+            <div class="flex gap-2">
+                <input id="deposit-amount" type="number" placeholder="Cantidad"
+                    class="flex-1 bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:border-cyan-500 outline-none">
+                    <button id="deposit-btn" class="bg-cyan-600 hover:bg-cyan-500 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                        Depositar
+                    </button>
+            </div>
+        `;
+                    div.appendChild(depositCard);
+
+                    // Withdrawal Section
+                    const withdrawalCard = document.createElement('div');
+                    withdrawalCard.className = 'glass-card p-6 rounded-xl';
+
+                    const shopItems = Store.data.modules.shop.items;
+                    const shopOptions = shopItems.map(item =>
+                        `<option value="${item.id}">${item.name} - ${item.xpRequired || 0} XP</option>`
+                    ).join('');
+
+                    withdrawalCard.innerHTML = `
+            <h3 class="text-lg font-bold text-slate-200 mb-4 flex items-center gap-2">
+                <i data-lucide="minus-circle" class="w-5 h-5 text-red-400"></i>
+                            Retirar para Premio
+                        </h3>
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-sm text-slate-400 mb-2">Cantidad a retirar</label>
+                    <input id="withdrawal-amount" type="number" placeholder="¿Cuánto quieres retirar?"
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:border-red-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-400 mb-2">¿Para qué premio?</label>
+                    <select id="reward-select" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:border-red-500 outline-none">
+                        <option value="">Selecciona un premio...</option>
+                        ${shopOptions}
+                    </select>
+                </div>
+                <div id="reward-info" class="hidden bg-slate-800/50 p-3 rounded-lg text-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-slate-400">XP Requerido:</span>
+                        <span id="reward-xp" class="text-yellow-400 font-bold"></span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Tu XP:</span>
+                        <span id="user-xp" class="text-yellow-400 font-bold">${Store.data.user.xp}</span>
+                    </div>
+                </div>
+                <button id="withdraw-btn" class="w-full bg-red-600 hover:bg-red-500 text-white py-3 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    Retirar y Canjear
+                </button>
+                <div id="withdrawal-error" class="hidden text-red-400 text-sm text-center"></div>
+            </div>
+        `;
+                    div.appendChild(withdrawalCard);
+
+                    // History
+                    const history = document.createElement('div');
+                    history.className = 'bg-slate-900/50 rounded-xl p-4 border border-slate-800/50';
+                    history.innerHTML = `<h4 class="text-xs font-bold text-slate-500 uppercase mb-3">Historial Reciente</h4>`;
+
+                    const list = document.createElement('ul');
+                    list.className = 'space-y-2 text-sm';
+
+                    // Show last 5
+                    [...savings.logs].reverse().slice(0, 5).forEach(log => {
+                        const li = document.createElement('li');
+                        li.className = 'flex justify-between text-slate-400';
+                        li.innerHTML = `< span > ${new Date(log.date).toLocaleDateString()}</span > <span class="text-cyan-400">+${fmtCash(log.amount)}</span>`;
+                        list.appendChild(li);
+                    });
+                    history.appendChild(list);
+                    div.appendChild(history);
+
+                    // Event Handlers
+                    setTimeout(() => {
+                        // Deposit handler
+                        const depositBtn = document.getElementById('deposit-btn');
+                        const depositInput = document.getElementById('deposit-amount');
+
+                        depositBtn.onclick = () => {
+                            const amount = parseInt(depositInput.value);
+                            if (amount > 0) {
+                                Store.updateSavings(amount);
+                                depositInput.value = '';
+                                App.renderView('savings');
+                            }
+                        };
+
+                        // Reward selection handler
+                        const rewardSelect = document.getElementById('reward-select');
+                        const withdrawalAmountInput = document.getElementById('withdrawal-amount');
+                        const rewardInfo = document.getElementById('reward-info');
+                        const withdrawBtn = document.getElementById('withdraw-btn');
+                        const withdrawalError = document.getElementById('withdrawal-error');
+
+                        const validateWithdrawal = () => {
+                            const itemId = rewardSelect.value;
+                            const amount = parseInt(withdrawalAmountInput.value);
+
+                            if (!itemId) {
+                                rewardInfo.classList.add('hidden');
+                                withdrawBtn.disabled = true;
+                                withdrawalError.classList.add('hidden');
+                                return;
+                            }
+
+                            const item = shopItems.find(i => i.id === itemId);
+                            if (!item) return;
+
+                            // Show reward info
+                            rewardInfo.classList.remove('hidden');
+                            document.getElementById('reward-xp').textContent = item.xpRequired + ' XP';
+                            document.getElementById('user-xp').textContent = Store.data.user.xp + ' XP';
+
+                            // Validate requirements
+                            const hasEnoughXP = Store.data.user.xp >= item.xpRequired;
+                            const hasAmount = amount > 0;
+                            const hasEnoughBalance = Store.data.modules.savings.balance >= amount;
+
+                            if (!hasAmount) {
+                                withdrawalError.textContent = '⚠️ Ingresa la cantidad a retirar';
+                                withdrawalError.classList.remove('hidden');
+                                withdrawBtn.disabled = true;
+                            } else if (!hasEnoughBalance) {
+                                withdrawalError.textContent = '❌ No tienes suficiente saldo en la bóveda';
+                                withdrawalError.classList.remove('hidden');
+                                withdrawBtn.disabled = true;
+                            } else if (!hasEnoughXP) {
+                                withdrawalError.textContent = `❌ Necesitas ${item.xpRequired} XP para este premio(tienes ${Store.data.user.xp} XP)`;
+                                withdrawalError.classList.remove('hidden');
+                                withdrawBtn.disabled = true;
+                            } else {
+                                withdrawalError.classList.add('hidden');
+                                withdrawBtn.disabled = false;
+                            }
+                        };
+
+                        rewardSelect.onchange = validateWithdrawal;
+                        withdrawalAmountInput.oninput = validateWithdrawal;
+
+                        // Withdrawal handler
+                        withdrawBtn.onclick = () => {
+                            const itemId = rewardSelect.value;
+                            const amount = parseInt(withdrawalAmountInput.value);
+
+                            if (!itemId || !amount) return;
+
+                            const item = shopItems.find(i => i.id === itemId);
+                            if (!item) return;
+
+                            // Double-check requirements
+                            if (Store.data.user.xp < item.xpRequired) {
+                                alert('No tienes suficiente XP para este premio');
+                                return;
+                            }
+
+                            if (Store.data.modules.savings.balance < amount) {
+                                alert('No tienes suficiente saldo en la bóveda');
+                                return;
+                            }
+
+                            if (confirm(`¿Confirmas el retiro y canje ?\n\nRetiro: ₡${amount.toLocaleString('es-CR')} \nPremio: ${item.name} \n\nSe deducirán: \n - ₡${amount.toLocaleString('es-CR')} de tu bóveda\n - ${item.xpRequired} XP`)) {
+                                // Deduct custom amount and XP
+                                Store.updateSavings(-amount);
+                                Store.addXP(-item.xpRequired);
+
+                                // Show success message
+                                alert(`🎉 ¡Premio canjeado!\n\nRetiraste ₡${amount.toLocaleString('es-CR')} para "${item.name}"\n\nDisfruta tu premio! 🎁`);
+
+                                // Refresh view
+                                App.renderView('savings');
+                            }
+                        };
+
+                        lucide.createIcons();
+                    }, 0);
+
+                    return div;
+                },
+
+                Shop() {
+                    const div = document.createElement('div');
+                    div.className = 'space-y-6 animate-fade-in pb-20';
+
+                    div.innerHTML = `
+            <div class="flex items-center gap-4 mb-6">
+                            <button onclick="App.renderView('dashboard')" class="p-2 -ml-2 rounded-full hover:bg-slate-800">
+                                <i data-lucide="arrow-left" class="w-6 h-6 text-slate-400"></i>
+                            </button>
+                            <h2 class="text-2xl font-bold text-amber-400">Tienda de Premios</h2>
+                        </div>
+            <div class="bg-amber-500/10 border border-amber-500/20 p-4 rounded-xl flex justify-between items-center mb-6">
+                <span class="text-amber-200 text-sm font-medium">Tu Saldo Disponible</span>
+                <span class="text-2xl font-bold text-amber-400 flex items-center gap-2">
+                    <i data-lucide="zap" class="w-5 h-5"></i> ${Store.data.user.xp}
+                </span>
+            </div>
+        `;
+
+                    // Add New Item Button
+                    const addBtn = document.createElement('button');
+                    addBtn.className = "w-full mb-6 p-3 rounded-xl border border-dashed border-amber-600/50 text-amber-400/70 hover:bg-amber-900/20 hover:text-amber-400 hover:border-amber-500 flex justify-center gap-2 transition-all";
+                    addBtn.innerHTML = `<i data-lucide="plus-circle" class="w-5 h-5"></i> Nuevo Premio`;
+                    addBtn.onclick = () => {
+                        // Create modal for tier selection
+                        const modal = document.createElement('div');
+                        modal.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-fade-in';
+
+                        const tierConfig = {
+                            bronze: { name: 'Bronce', xp: 100, color: 'amber-700', icon: 'coffee' },
+                            silver: { name: 'Plata', xp: 500, color: 'slate-300', icon: 'star' },
+                            gold: { name: 'Oro', xp: 1000, color: 'yellow-400', icon: 'crown' },
+                            diamond: { name: 'Diamante', xp: 2000, color: 'cyan-400', icon: 'gem' }
+                        };
+
+                        modal.innerHTML = `
+            <div class="glass-card p-6 rounded-2xl max-w-md w-full mx-4 animate-scale-in" >
+                                <h3 class="text-xl font-bold text-amber-400 mb-4">Crear Nuevo Premio</h3>
+
+                                <div class="mb-4">
+                                    <label class="block text-sm text-slate-400 mb-2">Nombre del premio</label>
+                                    <input id="reward-name" type="text" placeholder="Ej: Café, Pizza, Masaje..."
+                                        class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:border-amber-500 outline-none">
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-sm text-slate-400 mb-3">Nivel del premio</label>
+                                    <div class="grid grid-cols-2 gap-3" id="tier-options">
+                                        ${Object.entries(tierConfig).map(([key, tier]) => `
+                                            <button class="tier-btn p-4 rounded-xl border-2 border-slate-700 hover:border-${tier.color} transition-all text-center" data-tier="${key}">
+                                                <i data-lucide="${tier.icon}" class="w-8 h-8 text-${tier.color} mx-auto mb-2"></i>
+                                                <div class="font-bold text-slate-200 text-sm">${tier.name}</div>
+                                                <div class="text-xs text-${tier.color} font-bold">${tier.xp} XP</div>
+                                            </button>
+                                        `).join('')}
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-2">
+                                    <button id="cancel-btn" class="flex-1 bg-slate-700 hover:bg-slate-600 text-white py-3 rounded-lg font-medium transition-colors">
+                                        Cancelar
+                                    </button>
+                                    <button id="create-btn" class="flex-1 bg-amber-600 hover:bg-amber-500 text-white py-3 rounded-lg font-medium transition-colors" disabled>
+                                        Crear Premio
+                                    </button>
+                                </div>
+                            </div >
+            `;
+
+                        document.body.appendChild(modal);
+
+                        let selectedTier = null;
+
+                        // Tier selection
+                        modal.querySelectorAll('.tier-btn').forEach(btn => {
+                            btn.onclick = () => {
+                                modal.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('ring-2', 'ring-amber-500'));
+                                btn.classList.add('ring-2', 'ring-amber-500');
+                                selectedTier = btn.dataset.tier;
+                                modal.querySelector('#create-btn').disabled = !modal.querySelector('#reward-name').value.trim();
+                            };
+                        });
+
+                        // Name input validation
+                        modal.querySelector('#reward-name').oninput = (e) => {
+                            modal.querySelector('#create-btn').disabled = !e.target.value.trim() || !selectedTier;
+                        };
+
+                        // Cancel
+                        modal.querySelector('#cancel-btn').onclick = () => modal.remove();
+
+                        // Create
+                        modal.querySelector('#create-btn').onclick = () => {
+                            const name = modal.querySelector('#reward-name').value.trim();
+                            if (!name || !selectedTier) return;
+
+                            const tier = tierConfig[selectedTier];
+
+                            Store.data.modules.shop.items.push({
+                                id: Utils.generateId(),
+                                name,
+                                cost: tier.xp, // For backward compatibility
+                                xpRequired: tier.xp,
+                                tier: selectedTier,
+                                icon: tier.icon
+                            });
+                            Store.save();
+                            modal.remove();
+                            App.renderView('shop');
+                        };
+
+                        setTimeout(() => lucide.createIcons(), 0);
+                    };
+                    div.appendChild(addBtn);
+
+                    const grid = document.createElement('div');
+                    grid.className = 'grid grid-cols-2 gap-4';
+
+                    Store.data.modules.shop.items.forEach(item => {
+                        const card = document.createElement('div');
+                        const isAffordable = Store.data.user.xp >= (item.xpRequired || item.cost);
+
+                        card.className = `glass-card p-4 rounded-xl flex flex-col items-center text-center border-2 transition-all group relative ${isAffordable ? 'border-slate-700 hover:border-amber-500/50 cursor-pointer' : 'border-slate-800 opacity-70 grayscale'}`;
+
+                        // Card content
+                        card.innerHTML = `
+            <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center mb-3 shadow-inner">
+                <i data-lucide="${item.icon}" class="w-8 h-8 text-${item.tier === 'gold' ? 'yellow-400' : item.tier === 'silver' ? 'slate-300' : item.tier === 'diamond' ? 'cyan-400' : 'amber-700'}"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-200 text-sm mb-1 line-clamp-2">${item.name}</h3>
+                            <div class="px-3 py-1 bg-slate-900 rounded-full text-xs font-bold text-amber-400 mt-auto">
+                                ${item.xpRequired || item.cost} XP
+                            </div>
+        `;
+
+                        // Delete button
+                        const deleteBtn = document.createElement('div');
+                        deleteBtn.className = "absolute top-2 right-2 flex gap-1 z-10 opacity-0 group-hover:opacity-100 transition-opacity";
+                        deleteBtn.innerHTML = `
+            <button class="delete-btn p-1.5 bg-slate-900 rounded-full text-red-400 hover:text-red-300 shadow-md">
+                <i data-lucide="trash" class="w-3 h-3"></i>
+                            </button>
+            `;
+
+                        deleteBtn.querySelector('.delete-btn').onclick = (e) => {
+                            e.stopPropagation();
+                            if (confirm(`¿Borrar "${item.name}" ? `)) {
+                                Store.data.modules.shop.items = Store.data.modules.shop.items.filter(i => i.id !== item.id);
+                                Store.save();
+                                App.renderView('shop');
+                            }
+                        };
+
+                        card.appendChild(deleteBtn);
+
+                        // Buy Action
+                        card.onclick = (e) => {
+                            if (!e.target.closest('.delete-btn')) {
+                                if (isAffordable) {
+                                    if (confirm(`¿Canjear "${item.name}" por ${item.xpRequired || item.cost} XP ? `)) {
+                                        Store.addXP(-(item.xpRequired || item.cost));
+                                        alert(`🎉 ¡Premio canjeado! Disfruta tu ${item.name} `);
+                                        App.renderView('shop');
+                                    }
+                                } else {
+                                    alert('Te faltan XP para este premio.');
+                                }
+                            }
+                        };
+
+                        grid.appendChild(card);
+                    });
+
+                    div.appendChild(grid);
+                    return div;
+                },
+
+                LevelCreator(levelId = null) {
+                    const isEdit = !!levelId;
+                    const level = isEdit ? Store.data.levels.find(l => l.id === levelId) : null;
+
+                    const div = document.createElement('div');
+                    div.className = 'space-y-6 animate-fade-in pb-20';
+
+                    // Available colors and icons
+                    const colors = [
+                        { name: 'Verde', value: 'green', class: 'bg-green-500' },
+                        { name: 'Azul', value: 'blue', class: 'bg-blue-500' },
+                        { name: 'Morado', value: 'purple', class: 'bg-purple-500' },
+                        { name: 'Rojo', value: 'red', class: 'bg-red-500' },
+                        { name: 'Amarillo', value: 'yellow', class: 'bg-yellow-500' },
+                        { name: 'Cyan', value: 'cyan', class: 'bg-cyan-500' },
+                        { name: 'Rosa', value: 'pink', class: 'bg-pink-500' },
+                        { name: 'Naranja', value: 'orange', class: 'bg-orange-500' }
+                    ];
+
+                    const icons = [
+                        'dumbbell', 'brain', 'sparkles', 'heart', 'book', 'briefcase',
+                        'target', 'trophy', 'star', 'flame', 'zap', 'compass',
+                        'palette', 'music', 'camera', 'coffee', 'home', 'users'
+                    ];
+
+                    div.innerHTML = `
+            <div class="flex items-center gap-4 mb-6">
+                            <button onclick="App.renderView('dashboard')" class="p-2 -ml-2 rounded-full hover:bg-slate-800">
+                                <i data-lucide="arrow-left" class="w-6 h-6 text-slate-400"></i>
+                            </button>
+                            <h2 class="text-2xl font-bold text-slate-200">${isEdit ? 'Editar Nivel' : 'Crear Nuevo Nivel'}</h2>
+                        </div>
+
+            <div class="glass-card p-6 rounded-xl space-y-6">
+                <div>
+                    <label class="block text-sm font-bold text-slate-300 mb-2">Nombre del Nivel</label>
+                    <input id="level-name" type="text" value="${isEdit ? level.name : ''}" placeholder="Ej: Profesional, Social, Financiero..."
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:border-indigo-500 outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-slate-300 mb-3">Color</label>
+                    <div id="color-picker" class="grid grid-cols-4 gap-2">
+                        ${colors.map(c => `
+                                        <button class="color-option p-3 rounded-lg border-2 border-transparent hover:border-slate-500 transition-all flex flex-col items-center gap-2" data-color="${c.value}">
+                                            <div class="w-8 h-8 rounded-full ${c.class}"></div>
+                                            <span class="text-xs text-slate-400">${c.name}</span>
+                                        </button>
+                                    `).join('')}
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-slate-300 mb-3">Ícono</label>
+                    <div id="icon-picker" class="grid grid-cols-6 gap-2">
+                        ${icons.map(icon => `
+                                        <button class="icon-option p-3 rounded-lg border-2 border-transparent hover:border-slate-500 transition-all flex items-center justify-center" data-icon="${icon}">
+                                            <i data-lucide="${icon}" class="w-6 h-6 text-slate-400"></i>
+                                        </button>
+                                    `).join('')}
+                    </div>
+                </div>
+
+                <div class="flex gap-3 pt-4">
+                    <button id="save-level-btn" class="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-lg font-medium transition-colors">
+                        ${isEdit ? 'Guardar Cambios' : 'Crear Nivel'}
+                    </button>
+                    ${isEdit ? `<button id="delete-level-btn" class="px-4 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 rounded-lg"><i data-lucide="trash-2" class="w-5 h-5"></i></button>` : ''}
+                </div>
+            </div>
+        `;
+
+                    // State
+                    let selectedColor = isEdit ? level.color : 'green';
+                    let selectedIcon = isEdit ? level.icon : 'target';
+
+                    // Bind events after render
+                    setTimeout(() => {
+                        // Color selection
+                        div.querySelectorAll('.color-option').forEach(btn => {
+                            if (btn.dataset.color === selectedColor) {
+                                btn.classList.add('border-indigo-500');
+                            }
+                            btn.onclick = () => {
+                                div.querySelectorAll('.color-option').forEach(b => b.classList.remove('border-indigo-500'));
+                                btn.classList.add('border-indigo-500');
+                                selectedColor = btn.dataset.color;
+                            };
+                        });
+
+                        // Icon selection
+                        div.querySelectorAll('.icon-option').forEach(btn => {
+                            if (btn.dataset.icon === selectedIcon) {
+                                btn.classList.add('border-indigo-500');
+                            }
+                            btn.onclick = () => {
+                                div.querySelectorAll('.icon-option').forEach(b => b.classList.remove('border-indigo-500'));
+                                btn.classList.add('border-indigo-500');
+                                selectedIcon = btn.dataset.icon;
+                            };
+                        });
+
+                        // Save button
+                        div.querySelector('#save-level-btn').onclick = () => {
+                            const name = document.getElementById('level-name').value.trim();
+                            if (!name) {
+                                alert('Por favor ingresa un nombre para el nivel');
+                                return;
+                            }
+
+                            if (isEdit) {
+                                Store.updateLevel(levelId, name, selectedColor, selectedIcon);
+                            } else {
+                                Store.createLevel(name, selectedColor, selectedIcon);
+                            }
+                            App.renderView('dashboard');
+                        };
+
+                        // Delete button (only in edit mode)
+                        if (isEdit) {
+                            div.querySelector('#delete-level-btn').onclick = () => {
+                                if (confirm(`¿Estás segura de eliminar el nivel "${level.name}" y todas sus metas ? `)) {
+                                    Store.deleteLevel(levelId);
+                                    App.renderView('dashboard');
+                                }
+                            };
+                        }
+
+                        lucide.createIcons();
+                    }, 0);
+
+                    return div;
+                },
+
+                LevelEditor(levelId) {
+                    return this.LevelCreator(levelId);
+                },
+
+                Journal() {
+                    const div = document.createElement('div');
+                    div.className = 'space-y-6 animate-fade-in h-[calc(100vh-100px)] flex flex-col pb-20';
+
+                    const dateKey = App.state.currentDate;
+
+                    div.innerHTML = `
+            <div class="flex items-center justify-between mb-2 shrink-0" >
+                            <div class="flex items-center gap-4">
+                                <button onclick="App.renderView('dashboard')" class="p-2 -ml-2 rounded-full hover:bg-slate-800">
+                                    <i data-lucide="arrow-left" class="w-6 h-6 text-slate-400"></i>
+                                </button>
+                                <div>
+                                    <h2 class="text-2xl font-bold text-pink-400">Diario</h2>
+                                    <p class="text-xs text-slate-500">${Utils.formatDateFriends(dateKey)}</p>
+                                </div>
+                            </div>
+                            <button id="toggle-history" class="text-xs text-pink-400 font-medium flex items-center gap-1 bg-pink-500/10 px-3 py-1.5 rounded-full border border-pink-500/20">
+                                <i data-lucide="history" class="w-4 h-4"></i> Historial
+                            </button>
+                        </div >
+            `;
+
+                    // Main Layout: Sidebar (Hidden by default on mobile) + Editor
+                    const contentContainer = document.createElement('div');
+                    contentContainer.className = "flex-1 flex gap-4 overflow-hidden relative";
+
+                    // History Sidebar overlay
+                    const historyPanel = document.createElement('div');
+                    historyPanel.className = "absolute inset-0 bg-slate-900 z-20 transform translate-x-full transition-transform duration-300 flex flex-col p-4 border border-slate-700 rounded-xl";
+                    historyPanel.id = "journal-history";
+
+                    historyPanel.innerHTML = `
+            <div class="flex justify-between items-center mb-4" >
+                            <h3 class="text-lg font-bold text-slate-200">Entradas Pasadas</h3>
+                            <button id="close-history" class="p-2 hover:bg-slate-800 rounded-full"><i data-lucide="x" class="w-5 h-5"></i></button>
+                        </div >
+            <div class="overflow-y-auto space-y-2 flex-1">
+                ${Object.keys(Store.data.modules.journal).sort().reverse().map(d => `
+                                <button class="w-full text-left p-3 rounded-lg hover:bg-slate-800 border border-slate-700/50 flex flex-col group" onclick="App.state.currentDate='${d}'; App.updateDateDisplay(); App.renderView('journal')">
+                                    <span class="text-sm font-bold text-slate-300 group-hover:text-white">${Utils.formatDateFriends(d)}</span>
+                                    <span class="text-xs text-slate-500 truncate">${Store.data.modules.journal[d].substring(0, 40)}...</span>
+                                </button>
+                            `).join('')}
+                ${Object.keys(Store.data.modules.journal).length === 0 ? '<p class="text-slate-500 text-sm italic">Tu historia comienza hoy...</p>' : ''}
+            </div>
+        `;
+                    contentContainer.appendChild(historyPanel);
+
+                    const textarea = document.createElement('textarea');
+                    textarea.className = 'flex-1 w-full bg-slate-800/50 border border-slate-700 rounded-xl p-5 text-slate-300 focus:outline-none focus:border-pink-500/50 resize-none leading-relaxed text-sm';
+                    textarea.placeholder = "Escribe tus pensamientos, logros y gratitud de hoy...";
+                    textarea.value = Store.data.modules.journal[dateKey] || '';
+
+                    textarea.addEventListener('input', (e) => {
+                        Store.saveJournal(dateKey, e.target.value);
+                    });
+
+                    contentContainer.appendChild(textarea);
+                    div.appendChild(contentContainer);
+
+                    // Toggle Logic
+                    setTimeout(() => {
+                        const toggle = div.querySelector('#toggle-history');
+                        const close = historyPanel.querySelector('#close-history');
+                        const panel = historyPanel;
+
+                        toggle.onclick = () => panel.classList.remove('translate-x-full');
+                        close.onclick = () => panel.classList.add('translate-x-full');
+                    }, 0);
+
+                    return div;
+                }
+            }
+        };
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                App.init();
+            } catch (e) {
+                document.body.innerHTML = `<div class="p-10 text-red-500"><h1>Error Crítico</h1><pre>${e.stack}</pre><button onclick="localStorage.clear(); location.reload()">Reset DB</button></div>`;
+                console.error(e);
+            }
+        });
+
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then((registration) => {
+                        console.log('✅ Service Worker registrado:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('❌ Error al registrar Service Worker:', error);
+                    });
+            });
+        }
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            console.log('💡 App lista para instalar');
+
+            // Mostrar botón de instalación (opcional)
+            // Puedes agregar un botón en la UI para instalar la app
+        });
+
+        window.addEventListener('appinstalled', () => {
+            console.log('✅ PWA instalada exitosamente');
+            deferredPrompt = null;
+        });
+
+    </script>
+</body>
+
+</html>

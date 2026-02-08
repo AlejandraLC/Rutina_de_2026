@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Rutina de Inglés</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #0f172a;
+            color: #f8fafc;
+        }
+
+        .container {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #3b82f6;
+            margin-top: 0;
+        }
+
+        .step {
+            background: #334155;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+
+        button:hover {
+            background: #2563eb;
+        }
+
+        button.success {
+            background: #22c55e;
+        }
+
+        button.danger {
+            background: #ef4444;
+        }
+
+        #output {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .success-msg {
+            color: #22c55e;
+        }
+
+        .error-msg {
+            color: #ef4444;
+        }
+
+        .info-msg {
+            color: #3b82f6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎓 Agregar Rutina de Inglés A1→B2</h1>
+
+        <div class="step">
+            <h3>Paso 1: Verificar Estado Actual</h3>
+            <p>Primero verifica si tienes el nivel Mental creado y si ya existe la rutina de inglés.</p>
+            <button onclick="checkStatus()">🔍 Verificar Estado</button>
+        </div>
+
+        <div class="step">
+            <h3>Paso 2: Agregar Rutina de Inglés</h3>
+            <p>Esto agregará la rutina completa de 12 meses al nivel Mental.</p>
+            <button onclick="addEnglishRoutine()">➕ Agregar Rutina</button>
+        </div>
+
+        <div class="step">
+            <h3>Paso 3: Abrir la App</h3>
+            <p>Una vez agregada la rutina, abre tu app para verla.</p>
+            <button class="success" onclick="openApp()">🚀 Abrir App</button>
+        </div>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const output = document.getElementById('output');
+            const className = type === 'success' ? 'success-msg' : type === 'error' ? 'error-msg' : 'info-msg';
+            output.innerHTML += `<span class="${className}">${message}</span>\n`;
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function checkStatus() {
+            log('🔍 Verificando estado actual...', 'info');
+
+            const data = JSON.parse(localStorage.getItem('rutina2026') || '{}');
+
+            if (!data.levels || data.levels.length === 0) {
+                log('❌ No hay niveles creados. Por favor crea el nivel Mental primero en la app.', 'error');
+                return;
+            }
+
+            log(`✅ Encontrados ${data.levels.length} niveles`, 'success');
+
+            // Show all levels
+            log('📋 Niveles disponibles:', 'info');
+            data.levels.forEach(l => {
+                log(`   - "${l.name}" (${l.goals?.length || 0} metas)`, 'info');
+            });
+
+            // Find Mental level (case-insensitive)
+            const mentalLevel = data.levels.find(l => l.name.toLowerCase() === 'mental');
+            if (!mentalLevel) {
+                log('❌ Nivel Mental no encontrado. Por favor créalo primero.', 'error');
+                return;
+            }
+
+            log(`✅ Nivel Mental encontrado: "${mentalLevel.name}"`, 'success');
+            log(`   Metas actuales: ${mentalLevel.goals?.length || 0}`, 'info');
+
+            if (mentalLevel.goals) {
+                mentalLevel.goals.forEach(g => {
+                    log(`   - ${g.name} (${Object.keys(g.phases || {}).length} fases)`, 'info');
+                });
+            }
+
+            const englishGoal = mentalLevel.goals?.find(g => g.id === 'goal_english_2026');
+            if (englishGoal) {
+                log('⚠️ La rutina de inglés ya existe', 'error');
+                log(`   Fases: ${Object.keys(englishGoal.phases || {}).length}`, 'info');
+            } else {
+                log('✅ Listo para agregar la rutina de inglés', 'success');
+            }
+        }
+
+        function addEnglishRoutine() {
+            log('🚀 Agregando rutina de inglés...', 'info');
+
+            const data = JSON.parse(localStorage.getItem('rutina2026') || '{}');
+
+            if (!data.levels) {
+                log('❌ No hay datos en localStorage. Abre la app primero.', 'error');
+                return;
+            }
+
+            // Find Mental level (case-insensitive)
+            const mentalLevel = data.levels.find(l => l.name.toLowerCase() === 'mental');
+            if (!mentalLevel) {
+                log('❌ Nivel Mental no encontrado. Créalo primero.', 'error');
+                log('   Niveles disponibles: ' + data.levels.map(l => l.name).join(', '), 'info');
+                return;
+            }
+
+            log(`✅ Nivel Mental encontrado: "${mentalLevel.name}"`, 'success');
+
+            // Remove existing English goal if present
+            if (mentalLevel.goals) {
+                mentalLevel.goals = mentalLevel.goals.filter(g => g.id !== 'goal_english_2026');
+            } else {
+                mentalLevel.goals = [];
+            }
+
+            // Create English goal
+            const englishGoal = {
+                id: "goal_english_2026",
+                name: "Inglés A1→B2",
+                color: mentalLevel.color || "blue",
+                phaseType: "monthly",
+                phases: {}
+            };
+
+            // Helper functions
+            const createWeekdayActivities = (grammar) => [
+                { name: "Warm-up (5min): Pregunta simple oral" },
+                { name: `Gramática (15min): ${grammar}` },
+                { name: "Listening (10min): Video/audio sin subtítulos" },
+                { name: "Speaking (10min): Responder + mini monólogo" },
+                { name: "Writing (5min): 3-5 frases del tema" }
+            ];
+
+            const createWeekendActivities = () => [
+                { name: "Descanso activo: Serie/película en inglés" },
+                { name: "Música con letra" },
+                { name: "Videos de YouTube" }
+            ];
+
+            const dailyObjectives = {
+                1: "Hablar en voz alta siempre",
+                2: "Pensar en inglés cosas simples",
+                3: "No traducir palabra por palabra",
+                4: "Aceptar errores sin castigarte",
+                5: "Enfócate en comunicar, no en perfección"
+            };
+
+            // Month definitions
+            const months = [
+                { key: "2026-02", objective: "Consolidar A1 - Base sólida", notes: "📚 GRAMÁTICA: Presente simple, Verb to be, There is/are, Preguntas y negaciones\\n\\n🗣️ VOCABULARIO: Rutina diaria, Familia, Comida, Lugares, Emociones\\n\\n🎯 HABILIDADES: Entender frases lentas, Responder preguntas cortas, Presentarte\\n\\n✔️ META: Sentirte segura, sin traducir todo", grammar: "Presente simple / Verb to be" },
+                { key: "2026-03", objective: "Consolidar A1 (cont.)", notes: "📚 GRAMÁTICA: There is/are, Preguntas y negaciones, Preposiciones básicas\\n\\n🗣️ VOCABULARIO: Rutina diaria, Familia, Comida, Lugares\\n\\n🎯 HABILIDADES: Entender frases lentas, Responder preguntas cortas\\n\\n✔️ RESULTADO: A1 fuerte, listo para subir", grammar: "There is/are / Preguntas" },
+                { key: "2026-04", objective: "A2 inicial - Pasado y futuro", notes: "📚 GRAMÁTICA: Pasado simple, Futuro con going to, Comparativos\\n\\n🗣️ VOCABULARIO: Viajes, Trabajo, Salud, Tiempo libre\\n\\n🎯 HABILIDADES: Contar experiencias pasadas, Mini conversaciones (2-3 min)\\n\\n✔️ META: Comunicar ideas del pasado y futuro", grammar: "Pasado simple" },
+                { key: "2026-05", objective: "A2 inicial (cont.)", notes: "📚 GRAMÁTICA: Going to, Comparativos y superlativos, Countable/uncountable\\n\\n🗣️ VOCABULARIO: Viajes, Trabajo, Salud, Tiempo libre\\n\\n🎯 HABILIDADES: Experiencias pasadas, Conversaciones 2-3 min\\n\\n✔️ RESULTADO: A2 funcional", grammar: "Going to / Comparativos" },
+                { key: "2026-06", objective: "A2 alto - Hablar sin bloquearte", notes: "📚 GRAMÁTICA: Presente continuo vs simple, Pasado continuo, Modales\\n\\n🗣️ VOCABULARIO: Opiniones, Problemas cotidianos, Relaciones, Educación\\n\\n🎯 HABILIDADES: Expresar opiniones, Describir situaciones\\n\\n✔️ META: Hablar sin bloquearte", grammar: "Presente continuo vs simple" },
+                { key: "2026-07", objective: "A2 alto (cont.)", notes: "📚 GRAMÁTICA: Pasado continuo, Modales, Conectores (because, but, so)\\n\\n🗣️ VOCABULARIO: Opiniones, Problemas, Relaciones, Educación\\n\\n🎯 HABILIDADES: Expresar opiniones, Conectar ideas\\n\\n✔️ RESULTADO: Transición clara hacia B1", grammar: "Modales / Conectores" },
+                { key: "2026-08", objective: "B1 - Fluidez básica y confianza", notes: "📚 GRAMÁTICA: Presente perfecto, Condicional 0 y 1, Voz pasiva básica\\n\\n🗣️ VOCABULARIO: Experiencias, Situaciones hipotéticas, Noticias\\n\\n🎯 HABILIDADES: Expresar opiniones, Explicar razones, Videos normales\\n\\n✔️ META: Fluidez básica y confianza", grammar: "Presente perfecto" },
+                { key: "2026-09", objective: "B1 (cont.)", notes: "📚 GRAMÁTICA: Condicionales 0 y 1, Voz pasiva, Phrasal verbs básicos\\n\\n🗣️ VOCABULARIO: Experiencias, Hipotéticos, Noticias\\n\\n🎯 HABILIDADES: Opiniones, Explicar razones, Videos normales\\n\\n✔️ RESULTADO: B1 sólido", grammar: "Condicionales / Voz pasiva" },
+                { key: "2026-10", objective: "B1 alto - Sonar más natural", notes: "📚 GRAMÁTICA: Segundo condicional, Reported speech básico, Verb patterns\\n\\n🗣️ VOCABULARIO: Emociones complejas, Argumentación, Cultura\\n\\n🎯 HABILIDADES: Debates sencillos, Narraciones largas, Writing estructurado\\n\\n✔️ META: Sonar más natural", grammar: "Segundo condicional" },
+                { key: "2026-11", objective: "B1 alto (cont.)", notes: "📚 GRAMÁTICA: Reported speech, Verb patterns, Phrasal verbs avanzados\\n\\n🗣️ VOCABULARIO: Emociones complejas, Argumentación, Cultura\\n\\n🎯 HABILIDADES: Debates, Narraciones largas, Writing estructurado\\n\\n✔️ RESULTADO: Listo para B2", grammar: "Reported speech / Verb patterns" },
+                { key: "2026-12", objective: "B2 - Independencia real (parte 1)", notes: "📚 ENFOQUE: Fluidez, Naturalidad, Precisión\\n\\n🗣️ VOCABULARIO: Matices, Expresiones idiomáticas, Temas abstractos\\n\\n🎯 HABILIDADES: Argumentar, Distintos acentos, Expresar emociones\\n\\n✔️ META: Independencia real en inglés", grammar: "Refinamiento y práctica" },
+                { key: "2027-01", objective: "B2 - Independencia real (parte 2)", notes: "📚 ENFOQUE: Fluidez, Naturalidad, Precisión\\n\\n🗣️ VOCABULARIO: Matices, Expresiones idiomáticas, Temas abstractos\\n\\n🎯 HABILIDADES: Argumentar, Distintos acentos, Expresar emociones\\n\\n✔️ RESULTADO: Nivel B2 funcional 🎉", grammar: "Consolidación B2" }
+            ];
+
+            // Build phases
+            months.forEach(month => {
+                const weekday = createWeekdayActivities(month.grammar);
+                const weekend = createWeekendActivities();
+
+                englishGoal.phases[month.key] = {
+                    objective: month.objective,
+                    notes: month.notes,
+                    routine: {
+                        1: weekday, 2: weekday, 3: weekday, 4: weekday, 5: weekday,
+                        6: weekend, 0: weekend
+                    },
+                    dayObjectives: dailyObjectives
+                };
+            });
+
+            // Add to Mental level
+            mentalLevel.goals.push(englishGoal);
+
+            // Save back to localStorage
+            localStorage.setItem('rutina2026', JSON.stringify(data));
+
+            log('✅ Rutina de inglés agregada exitosamente!', 'success');
+            log(`📊 Resumen:`, 'info');
+            log(`   - Meta: Inglés A1→B2`, 'info');
+            log(`   - Fases: 12 meses (Feb 2026 - Ene 2027)`, 'info');
+            log(`   - Actividades: 5 días activos + 2 descanso`, 'info');
+            log('', 'info');
+            log('🔄 Haz clic en "Abrir App" para ver los cambios', 'success');
+        }
+
+        function openApp() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

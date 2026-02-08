@@ -1,0 +1,1448 @@
+{
+  "id": "goal_english_2026",
+  "name": "Inglés A1→B2",
+  "color": "blue",
+  "phaseType": "monthly",
+  "phases": {
+    "2026-02": {
+      "objective": "Consolidar A1 - Base sólida",
+      "notes": "📚 GRAMÁTICA: Presente simple, Verb to be, There is/are, Preguntas y negaciones, Preposiciones básicas\n\n🗣️ VOCABULARIO: Rutina diaria, Familia, Comida, Lugares, Emociones básicas\n\n🎯 HABILIDADES: Entender frases lentas, Responder preguntas cortas, Presentarte sin pensar demasiado\n\n✔️ META: Sentirte segura, sin traducir todo",
+      "routine": {
+        "0": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ],
+        "1": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente simple / Verb to be"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "2": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente simple / Verb to be"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "3": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente simple / Verb to be"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "4": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente simple / Verb to be"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "5": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente simple / Verb to be"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "6": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ]
+      },
+      "dayObjectives": {
+        "1": "Hablar en voz alta siempre",
+        "2": "Pensar en inglés cosas simples",
+        "3": "No traducir palabra por palabra",
+        "4": "Aceptar errores sin castigarte",
+        "5": "Enfócate en comunicar, no en perfección"
+      }
+    },
+    "2026-03": {
+      "objective": "Consolidar A1 - Base sólida (cont.)",
+      "notes": "📚 GRAMÁTICA: There is/are, Preguntas y negaciones, Preposiciones básicas\n\n🗣️ VOCABULARIO: Rutina diaria, Familia, Comida, Lugares, Emociones básicas\n\n🎯 HABILIDADES: Entender frases lentas, Responder preguntas cortas, Presentarte sin pensar demasiado\n\n✔️ RESULTADO: A1 fuerte, listo para subir",
+      "routine": {
+        "0": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ],
+        "1": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): There is/are / Preguntas"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "2": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): There is/are / Preguntas"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "3": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): There is/are / Preguntas"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "4": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): There is/are / Preguntas"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "5": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): There is/are / Preguntas"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "6": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ]
+      },
+      "dayObjectives": {
+        "1": "Hablar en voz alta siempre",
+        "2": "Pensar en inglés cosas simples",
+        "3": "No traducir palabra por palabra",
+        "4": "Aceptar errores sin castigarte",
+        "5": "Enfócate en comunicar, no en perfección"
+      }
+    },
+    "2026-04": {
+      "objective": "A2 inicial - Pasado y futuro",
+      "notes": "📚 GRAMÁTICA: Pasado simple, Futuro con going to, Comparativos y superlativos\n\n🗣️ VOCABULARIO: Viajes, Trabajo, Salud, Tiempo libre\n\n🎯 HABILIDADES: Contar experiencias pasadas, Mantener mini conversaciones (2-3 min)\n\n✔️ META: Comunicar ideas simples del pasado y futuro",
+      "routine": {
+        "0": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ],
+        "1": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Pasado simple"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "2": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Pasado simple"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "3": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Pasado simple"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "4": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Pasado simple"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "5": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Pasado simple"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "6": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ]
+      },
+      "dayObjectives": {
+        "1": "Hablar en voz alta siempre",
+        "2": "Pensar en inglés cosas simples",
+        "3": "No traducir palabra por palabra",
+        "4": "Aceptar errores sin castigarte",
+        "5": "Enfócate en comunicar, no en perfección"
+      }
+    },
+    "2026-05": {
+      "objective": "A2 inicial (cont.)",
+      "notes": "📚 GRAMÁTICA: Futuro con going to, Comparativos y superlativos, Countable/uncountable\n\n🗣️ VOCABULARIO: Viajes, Trabajo, Salud, Tiempo libre\n\n🎯 HABILIDADES: Contar experiencias pasadas, Mantener mini conversaciones (2-3 min)\n\n✔️ RESULTADO: A2 funcional",
+      "routine": {
+        "0": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ],
+        "1": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Going to / Comparativos"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "2": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Going to / Comparativos"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "3": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Going to / Comparativos"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "4": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Going to / Comparativos"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "5": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Going to / Comparativos"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "6": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ]
+      },
+      "dayObjectives": {
+        "1": "Hablar en voz alta siempre",
+        "2": "Pensar en inglés cosas simples",
+        "3": "No traducir palabra por palabra",
+        "4": "Aceptar errores sin castigarte",
+        "5": "Enfócate en comunicar, no en perfección"
+      }
+    },
+    "2026-06": {
+      "objective": "A2 alto - Hablar sin bloquearte",
+      "notes": "📚 GRAMÁTICA: Presente continuo vs simple, Pasado continuo, Modales (can, should, must)\n\n🗣️ VOCABULARIO: Opiniones, Problemas cotidianos, Relaciones, Educación\n\n🎯 HABILIDADES: Expresar opiniones, Describir situaciones, Usar conectores\n\n✔️ META: Hablar sin bloquearte",
+      "routine": {
+        "0": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ],
+        "1": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente continuo vs simple"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "2": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente continuo vs simple"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "3": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente continuo vs simple"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "4": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente continuo vs simple"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "5": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente continuo vs simple"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "6": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ]
+      },
+      "dayObjectives": {
+        "1": "Hablar en voz alta siempre",
+        "2": "Pensar en inglés cosas simples",
+        "3": "No traducir palabra por palabra",
+        "4": "Aceptar errores sin castigarte",
+        "5": "Enfócate en comunicar, no en perfección"
+      }
+    },
+    "2026-07": {
+      "objective": "A2 alto (cont.)",
+      "notes": "📚 GRAMÁTICA: Pasado continuo, Modales, Conectores básicos (because, but, so)\n\n🗣️ VOCABULARIO: Opiniones, Problemas cotidianos, Relaciones, Educación\n\n🎯 HABILIDADES: Expresar opiniones, Describir situaciones, Conectar ideas\n\n✔️ RESULTADO: Transición clara hacia B1",
+      "routine": {
+        "0": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ],
+        "1": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Modales / Conectores"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "2": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Modales / Conectores"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "3": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Modales / Conectores"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "4": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Modales / Conectores"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "5": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Modales / Conectores"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "6": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ]
+      },
+      "dayObjectives": {
+        "1": "Hablar en voz alta siempre",
+        "2": "Pensar en inglés cosas simples",
+        "3": "No traducir palabra por palabra",
+        "4": "Aceptar errores sin castigarte",
+        "5": "Enfócate en comunicar, no en perfección"
+      }
+    },
+    "2026-08": {
+      "objective": "B1 - Fluidez básica y confianza",
+      "notes": "📚 GRAMÁTICA: Presente perfecto, Condicional cero y primero, Voz pasiva (básica)\n\n🗣️ VOCABULARIO: Experiencias, Situaciones hipotéticas, Noticias\n\n🎯 HABILIDADES: Expresar opiniones, Explicar razones, Entender videos normales\n\n✔️ META: Fluidez básica y confianza",
+      "routine": {
+        "0": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ],
+        "1": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente perfecto"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "2": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente perfecto"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "3": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente perfecto"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "4": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente perfecto"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "5": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Presente perfecto"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "6": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ]
+      },
+      "dayObjectives": {
+        "1": "Hablar en voz alta siempre",
+        "2": "Pensar en inglés cosas simples",
+        "3": "No traducir palabra por palabra",
+        "4": "Aceptar errores sin castigarte",
+        "5": "Enfócate en comunicar, no en perfección"
+      }
+    },
+    "2026-09": {
+      "objective": "B1 (cont.)",
+      "notes": "📚 GRAMÁTICA: Condicional cero y primero, Voz pasiva, Phrasal verbs básicos\n\n🗣️ VOCABULARIO: Experiencias, Situaciones hipotéticas, Noticias\n\n🎯 HABILIDADES: Expresar opiniones, Explicar razones, Entender videos normales\n\n✔️ RESULTADO: B1 sólido",
+      "routine": {
+        "0": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ],
+        "1": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Condicionales / Voz pasiva"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "2": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Condicionales / Voz pasiva"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "3": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Condicionales / Voz pasiva"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "4": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Condicionales / Voz pasiva"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "5": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Condicionales / Voz pasiva"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "6": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ]
+      },
+      "dayObjectives": {
+        "1": "Hablar en voz alta siempre",
+        "2": "Pensar en inglés cosas simples",
+        "3": "No traducir palabra por palabra",
+        "4": "Aceptar errores sin castigarte",
+        "5": "Enfócate en comunicar, no en perfección"
+      }
+    },
+    "2026-10": {
+      "objective": "B1 alto - Sonar más natural",
+      "notes": "📚 GRAMÁTICA: Segundo condicional, Reported speech (básico), Verb patterns\n\n🗣️ VOCABULARIO: Emociones complejas, Argumentación, Cultura\n\n🎯 HABILIDADES: Debates sencillos, Narraciones más largas, Writing estructurado\n\n✔️ META: Sonar más natural",
+      "routine": {
+        "0": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ],
+        "1": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Segundo condicional"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "2": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Segundo condicional"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "3": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Segundo condicional"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "4": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Segundo condicional"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "5": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Segundo condicional"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "6": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ]
+      },
+      "dayObjectives": {
+        "1": "Hablar en voz alta siempre",
+        "2": "Pensar en inglés cosas simples",
+        "3": "No traducir palabra por palabra",
+        "4": "Aceptar errores sin castigarte",
+        "5": "Enfócate en comunicar, no en perfección"
+      }
+    },
+    "2026-11": {
+      "objective": "B1 alto (cont.)",
+      "notes": "📚 GRAMÁTICA: Reported speech, Verb patterns, Phrasal verbs avanzados\n\n🗣️ VOCABULARIO: Emociones complejas, Argumentación, Cultura\n\n🎯 HABILIDADES: Debates sencillos, Narraciones más largas, Writing estructurado\n\n✔️ RESULTADO: Listo para B2",
+      "routine": {
+        "0": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ],
+        "1": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Reported speech / Verb patterns"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "2": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Reported speech / Verb patterns"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "3": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Reported speech / Verb patterns"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "4": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Reported speech / Verb patterns"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "5": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Reported speech / Verb patterns"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "6": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ]
+      },
+      "dayObjectives": {
+        "1": "Hablar en voz alta siempre",
+        "2": "Pensar en inglés cosas simples",
+        "3": "No traducir palabra por palabra",
+        "4": "Aceptar errores sin castigarte",
+        "5": "Enfócate en comunicar, no en perfección"
+      }
+    },
+    "2026-12": {
+      "objective": "B2 - Independencia real (parte 1)",
+      "notes": "📚 ENFOQUE: Fluidez, Naturalidad, Precisión\n\n🗣️ VOCABULARIO: Matices, Expresiones idiomáticas, Temas abstractos\n\n🎯 HABILIDADES: Argumentar, Entender distintos acentos, Expresar emociones y matices\n\n✔️ META: Independencia real en inglés",
+      "routine": {
+        "0": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ],
+        "1": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Refinamiento y práctica"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "2": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Refinamiento y práctica"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "3": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Refinamiento y práctica"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "4": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Refinamiento y práctica"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "5": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Refinamiento y práctica"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "6": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ]
+      },
+      "dayObjectives": {
+        "1": "Hablar en voz alta siempre",
+        "2": "Pensar en inglés cosas simples",
+        "3": "No traducir palabra por palabra",
+        "4": "Aceptar errores sin castigarte",
+        "5": "Enfócate en comunicar, no en perfección"
+      }
+    },
+    "2027-01": {
+      "objective": "B2 - Independencia real (parte 2)",
+      "notes": "📚 ENFOQUE: Fluidez, Naturalidad, Precisión\n\n🗣️ VOCABULARIO: Matices, Expresiones idiomáticas, Temas abstractos\n\n🎯 HABILIDADES: Argumentar, Entender distintos acentos, Expresar emociones y matices\n\n✔️ RESULTADO: Nivel B2 funcional 🎉",
+      "routine": {
+        "0": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ],
+        "1": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Consolidación B2"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "2": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Consolidación B2"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "3": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Consolidación B2"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "4": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Consolidación B2"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "5": [
+          {
+            "name": "Warm-up (5min): Pregunta simple oral"
+          },
+          {
+            "name": "Gramática (15min): Consolidación B2"
+          },
+          {
+            "name": "Listening (10min): Video/audio sin subtítulos primero"
+          },
+          {
+            "name": "Speaking (10min): Responder en voz alta + mini monólogo"
+          },
+          {
+            "name": "Writing (5min): 3-5 frases del tema del día"
+          }
+        ],
+        "6": [
+          {
+            "name": "Descanso activo: Serie/película en inglés"
+          },
+          {
+            "name": "Música con letra en inglés"
+          },
+          {
+            "name": "Videos de YouTube en inglés"
+          }
+        ]
+      },
+      "dayObjectives": {
+        "1": "Hablar en voz alta siempre",
+        "2": "Pensar en inglés cosas simples",
+        "3": "No traducir palabra por palabra",
+        "4": "Aceptar errores sin castigarte",
+        "5": "Enfócate en comunicar, no en perfección"
+      }
+    }
+  }
+}
