@@ -1,0 +1,68 @@
+{
+    "user": {
+        "xp": 0,
+        "coins": 0
+    },
+    "settings": {
+        "lastReset": null
+    },
+    "levels": [
+        {
+            "id": "level_espiritual",
+            "name": "Espiritual",
+            "color": "purple",
+            "icon": "sparkles",
+            "goals": []
+        },
+        {
+            "id": "level_fisico",
+            "name": "Físico",
+            "color": "green",
+            "icon": "dumbbell",
+            "goals": []
+        },
+        {
+            "id": "level_mental",
+            "name": "Mental",
+            "color": "blue",
+            "icon": "brain",
+            "goals": []
+        }
+    ],
+    "modules": {
+        "savings": {
+            "balance": 0,
+            "logs": []
+        },
+        "shop": {
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Café",
+                    "cost": 1500,
+                    "xpRequired": 100,
+                    "tier": "bronze",
+                    "icon": "coffee"
+                },
+                {
+                    "id": 2,
+                    "name": "Almuerzo Especial",
+                    "cost": 5000,
+                    "xpRequired": 500,
+                    "tier": "silver",
+                    "icon": "star"
+                },
+                {
+                    "id": 3,
+                    "name": "Día Libre",
+                    "cost": 10000,
+                    "xpRequired": 1000,
+                    "tier": "gold",
+                    "icon": "crown"
+                }
+            ]
+        },
+        "journal": {}
+    },
+    "activityLog": {}
+}
